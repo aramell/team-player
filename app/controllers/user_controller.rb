@@ -4,4 +4,6 @@ class UserController < ApplicationController
     @user = User.new
 
   end
+
+  
 end

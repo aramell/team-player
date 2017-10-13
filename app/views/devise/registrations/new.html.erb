@@ -7,6 +7,11 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+  <div class="field">
+    <%= f.label :team_id %><br />
+    <%= f.text_field :team_id, autofocus: true %>
+  </div>
+  
 
   <div class="field">
     <%= f.label :password %>
@@ -20,8 +25,6 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

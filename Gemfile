@@ -33,6 +33,8 @@ gem 'pundit'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
