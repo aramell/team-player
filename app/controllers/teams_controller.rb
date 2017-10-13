@@ -1,4 +1,4 @@
-class TeamController < ApplicationController
+class TeamsController < ApplicationController
 
 
   def index
@@ -6,8 +6,12 @@ class TeamController < ApplicationController
 
   end 
   def new
+    # binding.pry
+    @teams = Team.new
+
+  end
+  def create
     binding.pry
-    @team = Team.new
 
   end
   def show
