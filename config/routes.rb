@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'application#index'
+  get '/teams/:id/games/:id', to: 'games#show', as: 'game'
+  get '/teams/:id/games', to: 'games#index', as: 'games'
   resources :teams
   resources :games
   # resources :users
+  
   get '/auth/:provider/callback', to: 'sessions#create'
   
   #  devise_scope :user do

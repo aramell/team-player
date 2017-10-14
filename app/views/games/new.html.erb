@@ -1,3 +1,5 @@
+<h3>Create New Game for <strong><%=current_user.team.name%></strong></h3>
+<div class="field">
 <%= form_for @game do |f| %>
 <%= f.label :game_time %>
 <%= f.time_field :game_time %>
@@ -5,8 +7,9 @@
 <%= f.date_field :game_date %>
 <%= f.label :location %>
 <%= f.text_field :location %>
-<%= f.label :team_id %>
-<%= f.collection_select :team_id, Team.all, :id, :name %>
+<%= f.hidden_field :team_id, :value => current_user.team_id %>
+
 
 <%= f.submit %>
 <% end %>
+</div>

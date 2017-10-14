@@ -24,6 +24,7 @@ class TeamsController < ApplicationController
     # binding.pry
     @team = Team.find_by(:id => params[:id])
     @teamgames = @team.games.all
+    
 
   end
 

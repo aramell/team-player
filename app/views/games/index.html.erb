@@ -1,0 +1,12 @@
+<strong>Team Name:</strong> <%= current_user.team.name%>
+</br>
+<div class="field">
+
+<% @games.each do |game|%>
+Game Date:  <%= game.game_date.strftime("%B %d, %Y %A") %></br>
+Game Time:  <%= game.game_time.strftime("%I:%M:%S %p") %></br>
+<%= link_to 'Additonal Game Details', game_path(game) %></br>
+<% end %>
+</div>
+<%= link_to 'Create Game', new_game_path %></br>
+<%= link_to 'Home', root_path %>
