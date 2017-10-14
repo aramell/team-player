@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'application#index'
   resources :teams
   resources :games
-  resources :users
+  # resources :users
   get '/auth/:provider/callback', to: 'sessions#create'
   
   #  devise_scope :user do
