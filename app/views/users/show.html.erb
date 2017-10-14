@@ -1,12 +1,13 @@
   <% if current_user.team_id != nil%>
       <%= @user.team%>
+      <%= %>
   <% else %>
   <h2>Create or choose your team </h2>
     <%= form_for @team do |f|%>
       <%= f.label :name %>
       <%= f.text_field :name %>
       <%= f.label :team_id %>
-      <%= f.collection_select :team_id, Team.all, :id, :name %>
+      add option to choose team here
       <%= f.submit %>
       <% end %>
   <% end %>
