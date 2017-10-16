@@ -1,6 +1,5 @@
   <% if current_user.team_id != nil %>
     <% @user.team.users.each do |user|%>
-    <% binding.pry%>
     <li><%= user.name%></li>
       <% end %>
   <% else %>

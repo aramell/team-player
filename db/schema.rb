@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20171016211748) do
     t.string "location"
     t.integer "team_id"
     t.integer "user_id"
+    t.integer "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

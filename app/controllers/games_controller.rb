@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   end
   
   def new
+    # binding.pry
     @game = Game.new
   end
 
@@ -18,12 +19,13 @@ class GamesController < ApplicationController
   end
 
   def show
+    # binding.pry
     @game = Game.find_by(:id => params[:id])
     
   end
   private
   def game_params
-    params.require(:game).permit(:game_date, :game_time, :location, :team_id, :user_id)
+    params.require(:game).permit(:game_date, :game_time, :location, :team_id, :user_id, :sport_id)
 
   end
 end

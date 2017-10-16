@@ -5,12 +5,11 @@ class Game < ApplicationRecord
   has_many :sports, through: :sport_games
   accepts_nested_attributes_for :sports
 
-  def 
+   
 
   def self.team_games(current_user)
     current_user
     current_user.team
-
   end
   def self.next_game(current_user)
     binding.pry
