@@ -1,6 +1,12 @@
 class Game < ApplicationRecord
   has_many :team_games
   has_many :users, through: :team_games
+  has_many :sport_games
+  has_many :sports, through: :sport_games
+  accepts_nested_attributes_for :sports
+
+  def 
+
   def self.team_games(current_user)
     current_user
     current_user.team
