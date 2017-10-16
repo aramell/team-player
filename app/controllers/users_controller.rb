@@ -11,8 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @team = Team.new
-    @teams = Team.all
+    
   
   end
 

@@ -8,6 +8,6 @@
 <% if user_signed_in? %>
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
 <%= link_to "Show my team's games", games_path(current_user.team)%>
+<%= link_to "Show my team's players", users_path(current_user) %>
 
-<%= #add next game %>
 <% end %>

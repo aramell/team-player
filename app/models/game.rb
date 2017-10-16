@@ -6,4 +6,10 @@ class Game < ApplicationRecord
     current_user.team
 
   end
+  def self.next_game(current_user)
+    binding.pry
+    current_user.team.games.first
+  end
 end
+
+#custom writer method use raise params.inspect to see how its being sent through params
