@@ -3,10 +3,12 @@ class Game < ApplicationRecord
   has_many :users, through: :team_games
   has_many :sport_games
   has_many :sports, through: :sport_games
-  # accepts_nested_attributes_for :sports
+  has_many :game_fields
+  has_many :fields, through: :game_fields
+  # accepts_nested_attributes_for :fields
 
-  def sport_attributes=(sport_ids)
-    raise sport_id.inspect
+  def fields_attributes=(field_hashes)
+    raise field_hashes.inspect
   end
 
   def self.team_games(current_user)

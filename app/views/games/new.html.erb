@@ -5,15 +5,15 @@
 <%= f.time_field :game_time %>
 <%= f.label :game_date %>
 <%= f.date_field :game_date %>
-<%= f.label :location %>
-<%= f.text_field :location %>
 <%= f.label :check_created_sport %>
-<%= f.collection_check_boxes :sport_ids, Sport.all, :id, :name %></br>
-  <%= f.fields_for :sport_attributes, @game.sports.build do |p|%>
-  <%= p.label :add_new_sport %>
-  <%= p.text_field :name %>
+<%= f.collection_select :sport_id, Sport.all, :id, :name %></br>
+<%= f.hidden_field :team_id, :value => current_user.team_id %> 
+
+Choose a field <%= f.collection_check_boxes :field_ids, Field.all, :id, :name %> or </br>
+<%= f.fields_for :fields  do |d|%>
+  <%= d.text_field :name, placeholder: "create a field" %>
+
   <% end %>
-<%= f.hidden_field :team_id, :value => current_user.team_id %>
 
 
 <%= f.submit %>

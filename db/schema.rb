@@ -10,15 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016211748) do
+ActiveRecord::Schema.define(version: 20171017195315) do
+
+  create_table "fields", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "team_id"
+    t.string "name"
+    t.string "location"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "game_fields", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "games", force: :cascade do |t|
     t.date "game_date"
     t.time "game_time"
-    t.string "location"
     t.integer "team_id"
     t.integer "user_id"
     t.integer "sport_id"
+    t.integer "field_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
