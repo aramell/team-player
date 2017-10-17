@@ -1,4 +1,7 @@
-<strong>Team Name:</strong> <%= @team.name%>
+<strong>Team Name:</strong> <%= @team.name%></br>
+<strong>Sports this team plays:</strong><% @team.sports.each do |sport| %>
+  <ul><%= sport.name%></ul>
+  <% end %>
 </br>
 <div class="field">
 

@@ -7,12 +7,12 @@ class Game < ApplicationRecord
   has_many :fields, through: :game_fields
   # accepts_nested_attributes_for :fields
 
-  def fields_attributes=(field_hashes)
-    field_hashes.each do |i, field|
-      new_field = Field.find_or_create_by(name: field[:name], location: field[:location])
-      self.fields.build(:name => new_field.name, :location => new_field.location)
-    end
-  end
+  # def fields_attributes=(field_hashes)
+  #   field_hashes.each do |i, field|
+  #     new_field = Field.find_or_create_by(name: field[:name], location: field[:location])
+  #     self.fields.build(:name => new_field.name, :location => new_field.location)
+  #   end
+  # end
   def field_name
     fields.first.name
   end

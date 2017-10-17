@@ -9,9 +9,10 @@ class TeamsController < ApplicationController
   def new
     # binding.pry
     @team = Team.new
-
+    @team.sports.build
   end
   def create
+    # binding.pry
     @team = Team.new(team_params)
     if @team.save
       redirect_to team_path(@team)
@@ -30,7 +31,7 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :positions, :game_id, :user_id)
+    params.require(:team).permit(:name, :positions, :game_id, :sport_ids => [], sports_attributes: [:name])
 
   end
 end
