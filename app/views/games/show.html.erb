@@ -3,7 +3,8 @@
 <div class="field">
 Game Date:  <%= @game.game_date.strftime("%B %d, %Y %A") %></br>
 Game Time:  <%= @game.game_time.strftime("%I:%M:%S %p") %></br>
-Location: <%= @game.location %></br>
+<#% binding.pry%>
+Location: <%= "something" %></br>
 </div>
 <%= link_to 'Create New Game', new_game_path %></br>
 <%= link_to 'Back to all games for your team', games_path(current_user.team.games)%></br>

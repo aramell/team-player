@@ -5,7 +5,6 @@
 <% @games.each do |game|%>
 Game Date:  <%= game.game_date %></br>
 Game Time:  <%= game.game_time %></br>
-<% binding.pry %>
 Sport: <%= game.sports.each { |sport| sport.name} %>
 <%= link_to 'Additonal Game Details', game_path(game) %></br>
 <% end %>
