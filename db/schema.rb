@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20171016211748) do
   end
 
   create_table "sport_games", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

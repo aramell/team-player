@@ -3,9 +3,11 @@ class Game < ApplicationRecord
   has_many :users, through: :team_games
   has_many :sport_games
   has_many :sports, through: :sport_games
-  accepts_nested_attributes_for :sports
+  # accepts_nested_attributes_for :sports
 
-   
+  def sport_attributes=(sport_ids)
+    raise sport_id.inspect
+  end
 
   def self.team_games(current_user)
     current_user

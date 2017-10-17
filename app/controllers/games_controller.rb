@@ -6,10 +6,13 @@ class GamesController < ApplicationController
   def new
     # binding.pry
     @game = Game.new
+    @game.sports.new
   end
 
   def create
-    @game = Game.new(game_params)
+    # raise params.inspect
+    binding.pry
+    @game = current_user.games.new(game_params)
     if @game.save
       redirect_to team_path(@game.team_id)
     else
@@ -25,7 +28,7 @@ class GamesController < ApplicationController
   end
   private
   def game_params
-    params.require(:game).permit(:game_date, :game_time, :location, :team_id, :user_id, :sport_id)
+    params.require(:game).permit(:game_date, :game_time, :location, :team_id, :user_id, :sport_ids => [], :sports_attributes => [:name])
 
   end
 end

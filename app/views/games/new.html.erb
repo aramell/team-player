@@ -1,14 +1,18 @@
 <h3>Create New Game for <strong><%=current_user.team.name%></strong></h3>
 <div class="field">
-<%= form_for @game, url: new_game_path do |f| %>
+<%= form_for @game, :url => {:controller => "games", :action => "create"} do |f| %>
 <%= f.label :game_time %>
 <%= f.time_field :game_time %>
 <%= f.label :game_date %>
 <%= f.date_field :game_date %>
 <%= f.label :location %>
 <%= f.text_field :location %>
-<%= f.label :sport%>
-<%= f.collection_select :sport_id, Sport.all, :id, :name %>
+<%= f.label :check_created_sport %>
+<%= f.collection_check_boxes :sport_ids, Sport.all, :id, :name %></br>
+  <%= f.fields_for :sport_attributes, @game.sports.build do |p|%>
+  <%= p.label :add_new_sport %>
+  <%= p.text_field :name %>
+  <% end %>
 <%= f.hidden_field :team_id, :value => current_user.team_id %>
 
 
