@@ -8,9 +8,14 @@ class Game < ApplicationRecord
   # accepts_nested_attributes_for :fields
 
   def fields_attributes=(field_hashes)
-    raise field_hashes.inspect
+    field_hashes.values.each do |field|
+      new_field = Field.find_or_create_by(field)
+      fields << new_field
+    end
   end
-
+  def sports_attributes=(sport_hashes)
+    binding.pry
+  end
   def self.team_games(current_user)
     current_user
     current_user.team

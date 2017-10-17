@@ -12,7 +12,7 @@
 Choose a field <%= f.collection_check_boxes :field_ids, Field.all, :id, :name %> or </br>
 <%= f.fields_for :fields  do |d|%>
   <%= d.text_field :name, placeholder: "create a field" %>
-
+  <%= d.text_field :location, placeholder: "field's location" %>
   <% end %>
 
 
