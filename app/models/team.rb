@@ -7,11 +7,9 @@ class Team < ApplicationRecord
 
   def sports_attributes=(sports_hash)
     sports_hash.each do |i, sport|
-      binding.pry
            new_sport = Sport.find_or_create_by(:name => sport[:name])
            
           self.sports.build(:name => new_sport.name)
-          binding.pry
     end
   end
 
