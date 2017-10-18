@@ -3,8 +3,7 @@ class Game < ApplicationRecord
   has_many :users, through: :team_games
   has_many :sport_games
   has_many :sports, through: :sport_games
-  has_many :game_fields
-  has_many :fields, through: :game_fields
+  has_one :field
   validates :game_time, :game_date, :fields, presence: true
   # accepts_nested_attributes_for :fields
 
@@ -14,9 +13,9 @@ class Game < ApplicationRecord
   #     self.fields.build(:name => new_field.name, :location => new_field.location)
   #   end
   # end
-  def field_name
-    fields.first.name
-  end
+  # def field_name
+  #   fields.first.name
+  # end
   def sports_attributes=(sport_hashes)
     binding.pry
   end

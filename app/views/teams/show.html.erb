@@ -8,7 +8,8 @@
 <% @teamgames.each do |game|%>
 Game Date:  <%= game.game_date %></br>
 Game Time:  <%= game.game_time %></br>
-Location: <% binding.pry  %></br>
+Field: <%= game.field.name  %></br>
+Sport: <%= game.sports.last.name %>
 
 <% end %>
 </div>  
