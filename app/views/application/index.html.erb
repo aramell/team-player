@@ -5,10 +5,12 @@
 <%= link_to "Sign Up for Team Player", new_user_registration_path %></br>
 <%= link_to "Already a user? - Sign In", new_user_session_path %></br>
   <% end %>
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.team != nil %>
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
 <%= link_to "Show my team's games", games_path(current_user.team)%>
 <%= link_to "Show my team's players", users_path(current_user) %>
-<%= link_to "Create New team", new_team_path(current_user) %>
+  <% else %>
+  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
+  <%= link_to "Create a Team", new_team_path(current_user) %>
 
 <% end %>

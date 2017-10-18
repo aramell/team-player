@@ -7,9 +7,10 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+ 
   
-    <%= f.label :team_id %><br />
-    <%= f.collection_select :team_id, Team.all, :id, :name, prompt: true %>
+    <%#= f.label :team_id %><br />
+    <%#= f.collection_select :team_id, Team.all, :id, :name, prompt: true %>
 
   
 

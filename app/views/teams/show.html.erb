@@ -8,9 +8,8 @@
 <% @teamgames.each do |game|%>
 Game Date:  <%= game.game_date %></br>
 Game Time:  <%= game.game_time %></br>
-Location: <%  %></br>
-<%binding.pry%>
-Sport: <%= game.sports.name%>
+Location: <% binding.pry  %></br>
+
 <% end %>
 </div>  
 <%= link_to 'Create Game', new_game_path %></br>
