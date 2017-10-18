@@ -1,20 +1,22 @@
 class GamesController < ApplicationController
   def index
-    @games = current_user.team.games
+    @games = current_user.teams
   end
   
   def new
-    # binding.pry
+    binding.pry
+    @team = Team.find_by(:id => params[:team_id])
     @game = Game.new
-    @game.fields.build
   end
 
   def create
-    @game = current_user.games.new(game_params)
+    @game = current_user.teams.last.games.new(game_params)
+    # binding.pry
     if @game.save
       redirect_to team_path(@game.team_id)
     else
-      redirect_to new_game_path
+      @team = Team.find_by(:id => params[:team_id])
+         render 'new'
     end
 
   end

@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
     @team.sports.build
   end
   def create
+    binding.pry
     @team = Team.new(team_params)
     @team.user_id = current_user.id
     if @team.save

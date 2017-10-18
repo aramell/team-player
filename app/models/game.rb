@@ -5,6 +5,7 @@ class Game < ApplicationRecord
   has_many :sports, through: :sport_games
   has_many :game_fields
   has_many :fields, through: :game_fields
+  validates :game_time, :game_date, :fields, presence: true
   # accepts_nested_attributes_for :fields
 
   # def fields_attributes=(field_hashes)

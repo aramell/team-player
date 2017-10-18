@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'application#index'
+  resources :teams do
+    resources :games
+  end
   get '/teams/:id/games/:id', to: 'games#show', as: 'game'
-  get '/teams/:id/games/new', to: 'games#new'
+  get '/teams/:id/games/new', to: 'games#new', as: 'newgame'
   get '/users/:id', to: 'users#show'
   get '/users', to: 'users#index'
   get '/teams/:id/games', to: 'games#index', as: 'games'
