@@ -12,13 +12,12 @@ class TeamsController < ApplicationController
     @team.sports.build
   end
   def create
-    # binding.pry
     @team = Team.new(team_params)
-    if @team.valid?
-      @team.save
+    if @team.save
       redirect_to team_path(@team)
     else
-      redirect_to new_team_path
+      render 'new'
+
     end
 
   end

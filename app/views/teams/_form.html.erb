@@ -1,4 +1,14 @@
+
+
+
 <%= form_for @team do |f| %>
+<% if @team.errors.any? %>
+  
+    <% @team.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+   
+<% end %>
 New Team <%= f.label :Name %>
 <%= f.text_field :name %>
 <!-- add team sport option -->
@@ -7,4 +17,6 @@ New Team <%= f.label :Name %>
 <p>create new sport</p>  <%= d.text_field :name%>
   <% end %></br>
 <%= f.submit %>
-<% end %>
+<% end %></br>
+
+  <%= link_to "Home", root_path %>
