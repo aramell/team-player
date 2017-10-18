@@ -2,13 +2,17 @@
 
 
 <%= form_for @team do |f| %>
-<% if @team.errors.any? %>
-  
-    <% @team.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-   
-<% end %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this user from being saved:</h2>
+ 
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 New Team <%= f.label :Name %>
 <%= f.text_field :name %>
 <!-- add team sport option -->
