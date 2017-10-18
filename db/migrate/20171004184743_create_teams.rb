@@ -5,6 +5,7 @@ class CreateTeams < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :positions
       t.integer :game_id
+      t.integer :sport_id
       
 
       t.timestamps

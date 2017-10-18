@@ -14,7 +14,8 @@ class TeamsController < ApplicationController
   def create
     # binding.pry
     @team = Team.new(team_params)
-    if @team.save
+    if @team.valid?
+      @team.save
       redirect_to team_path(@team)
     else
       redirect_to new_team_path

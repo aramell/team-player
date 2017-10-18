@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20171017232916) do
     t.string "name"
     t.string "positions"
     t.integer "game_id"
+    t.integer "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
