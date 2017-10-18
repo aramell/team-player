@@ -1,5 +1,7 @@
-<strong>Team Name:</strong> <%= current_user.team.name%>
+<strong>Team Name:</strong> <% current_user.teams.each do |team| %>
 </br>
+<%= team.name%>
+<% end %>
 <div class="field">
 
 <% @games.each do |game|%>

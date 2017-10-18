@@ -2,10 +2,10 @@ class Game < ApplicationRecord
   has_many :team_games
   has_many :users, through: :team_games
   has_many :sport_games
-  has_many :sports, through: :sport_games
-  has_one :field
-  validates :game_time, :game_date, :fields, presence: true
-  # accepts_nested_attributes_for :fields
+  belongs_to :sport
+  belongs_to :field
+  validates :game_time, :game_date, presence: true
+   accepts_nested_attributes_for :sport
 
   # def fields_attributes=(field_hashes)
   #   field_hashes.each do |i, field|

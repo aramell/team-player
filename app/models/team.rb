@@ -7,12 +7,12 @@ class Team < ApplicationRecord
   message: "only allows letters" }
   # validates_presence_of :sports
 
-  def sports_attributes=(sports_hash)
-    sports_hash.each do |i, sport|
-           sport = Sport.find_or_create_by(:name => sport[:name])
-          self.sports.build(:name => sport)
-    end
-  end
+  # def sports_attributes=(sports_hash)
+  #   sports_hash.each do |i, sport|
+  #          sport = Sport.find_or_create_by(:name => sport[:name])
+  #         self.sports.build(:name => sport)
+  #   end
+  # end
 
     def show_users
       @team.users.each do |user|

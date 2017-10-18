@@ -6,10 +6,11 @@
 <div class="field">
 
 <% @teamgames.each do |game|%>
+<% binding.pry %>
 Game Date:  <%= game.game_date %></br>
 Game Time:  <%= game.game_time %></br>
 Field: <%= game.field.name  %></br>
-Sport: <%= game.sports.last.name %>
+Sport: <%= game.sport.name %>
 
 <% end %>
 </div>  
