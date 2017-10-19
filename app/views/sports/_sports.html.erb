@@ -1,0 +1,3 @@
+<%= @sports.each do |sport|%>
+  <%= link_to "#{sport.name}", sport_path(sport.id)%>
+  <% end %>

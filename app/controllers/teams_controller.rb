@@ -11,9 +11,7 @@ class TeamsController < ApplicationController
     @team.sports.build
   end
   def create
-    binding.pry
     @team = current_user.teams.build(team_params)
-    binding.pry
     if @team.save
       redirect_to team_path(@team)
     else
@@ -31,7 +29,9 @@ class TeamsController < ApplicationController
     
   end
   def update
+    binding.pry
     if @team.update_attributes(team_params)
+      binding.pry
       redirect_to team_path(@team)
     else
       render 'edit'
@@ -40,11 +40,10 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :positions, :game_id, :sport_ids => [])
+    params.require(:team).permit(:name, :positions, :game_id, :sport_ids => [], :sports_attributes => [:name, :id])
 
   end
   def set_team
     @team = Team.find_by(:id => params[:id])
-    
   end
 end

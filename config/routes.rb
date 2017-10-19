@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/teams/:id/games', to: 'games#index', as: 'games'
   get '/teams/:id/users', to: 'users#show', as: 'teamusers'
- 
+  resources :sports
   resources :teams
   resources :games
   # resources :users

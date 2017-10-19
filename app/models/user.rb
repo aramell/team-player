@@ -17,5 +17,6 @@ class User < ApplicationRecord
   end
 
     def show_current_teams
+      @current_user_teams  = current_user.teams.all
     end
 end
