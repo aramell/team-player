@@ -5,7 +5,6 @@ class Game < ApplicationRecord
   belongs_to :sport
   belongs_to :field
   validates :game_time, :game_date, presence: true
-  #  accepts_nested_attributes_for :sport
 
   # def fields_attributes=(field_hashes)
   #   field_hashes.each do |i, field|
@@ -16,9 +15,7 @@ class Game < ApplicationRecord
   # def field_name
   #   fields.first.name
   # end
-  def sports_attributes=(sport_hashes)
-    binding.pry
-  end
+  
   def self.team_games(current_user)
     current_user
     current_user.team

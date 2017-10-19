@@ -10,6 +10,7 @@ class GamesController < ApplicationController
   end
 
   def create
+    binding.pry
     @game = current_user.teams.last.games.new(game_params)
     if @game.save
       redirect_to team_path(@game.team_id)

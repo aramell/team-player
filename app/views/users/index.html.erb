@@ -1,4 +1,8 @@
 <% @users.each do |user|%>
-  <%= user.name %>
-  <%binding.pry%>
+Click on user to view their teams:
+<div class="fields" >
+  <li><%=link_to "#{user.email}", teams_path(user.id)%></li>
   <% end %>
+  </div>
+
+  <%= link_to 'Home', root_path %>

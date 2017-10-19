@@ -15,6 +15,7 @@
   <% end %>
   <% else %>
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
+  <%= link_to "All Users", users_path%></br>
   <%= link_to "Create a Team", new_team_path(current_user) %>
 
 <% end %>

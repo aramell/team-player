@@ -1,18 +1,1 @@
-<strong>Team Name:</strong> <%= @team.name%></br>
-
-<strong>Sports this team plays:</strong><% @team.sports.each do |sport| %>
-  <li><%= sport.name%></li>
-  <% end %>
-</br>
-<div class="field">
-
-<% @teamgames.each do |game|%>
-Game Date:  <%= game.game_date %></br>
-Game Time:  <%= game.game_time %></br>
-Field: <%= game.field.name  %></br>
-Sport: <%= game.sport.name %>
-
-<% end %>
-</div>  
-<%= link_to 'Create Game for this Team', newgame_path(@team.id) %></br>
-<%= link_to 'Home', root_path %>
+<%= render 'show'%>
