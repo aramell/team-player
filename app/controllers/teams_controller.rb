@@ -7,14 +7,11 @@ class TeamsController < ApplicationController
 
   end 
   def new
-    # binding.pry
     @team = Team.new
     @team.sports.build
   end
   def create
-    binding.pry
     @team = Team.new(team_params)
-    @team.user_id = current_user.id
     if @team.save
       redirect_to team_path(@team)
     else
@@ -24,7 +21,6 @@ class TeamsController < ApplicationController
 
   end
   def show
-    # binding.pry
     @team = Team.find_by(:id => params[:id])
     @teamgames = @team.games.all
     

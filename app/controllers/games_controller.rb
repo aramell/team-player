@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   def index
+    binding.pry
     @games = current_user.teams
   end
   
@@ -9,9 +10,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    binding.pry
     @game = current_user.teams.last.games.new(game_params)
-    binding.pry
     if @game.save
       redirect_to team_path(@game.team_id)
     else
@@ -22,7 +21,6 @@ class GamesController < ApplicationController
   end
 
   def show
-    # binding.pry
     @game = Game.find_by(:id => params[:id])
     
   end
