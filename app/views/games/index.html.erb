@@ -4,10 +4,7 @@
 <% @teams.each do |team|%>
 <% team.name%>
 <% team.games.each do |game| %><li>
-Game Date:  <%= game.game_date %></br>
-Game Time:  <%= game.game_time %></br>
-Game Field: <%= game.field.name %>
-Sport: <%= game.sport.name %></li>
+  <%= render 'game_details', :game => game%>
 <%= link_to 'Additonal Game Details', game_path(game) %></br>
   <% end %>
 <% end %>
