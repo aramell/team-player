@@ -25,8 +25,8 @@ class GamesController < ApplicationController
   end
   def destroy
     set_game
-    @team = Team.find_by(:id => params[:team_id])
-    
+    binding.pry
+    set_team    
     @game.destroy
     redirect_to teams_path(params[:team_id])
   end
