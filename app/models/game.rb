@@ -20,9 +20,18 @@ class Game < ApplicationRecord
     current_user
     current_user.team
   end
-  def self.next_game(current_user)
+  def self.my_games
     binding.pry
-    current_user.team.games.first
+    @teams = current_user.teams
+    @games = @teams.games.each do |game|
+    
+    end
+    binding.pry
+  end
+  def self.game_today
+    binding.pry
+    @game_today = Game.where('start BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all
+    
   end
 end
 

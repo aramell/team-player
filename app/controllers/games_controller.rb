@@ -2,7 +2,8 @@ class GamesController < ApplicationController
   include GameHelper
   def index
     binding.pry
-    @games = current_user.teams
+    Game.my_games
+    @teams = current_user.teams
   end
   
   def new

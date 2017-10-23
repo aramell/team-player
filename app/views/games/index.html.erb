@@ -1,14 +1,15 @@
-<strong>Team Name:</strong> <% current_user.teams.each do |team| %>
-</br>
-<%= team.name%>
-<% end %>
-<div class="field">
+<h3>All Games for <strong><%=current_user.email %>:</strong></h3> 
 
-<% @games.each do |game|%>
+
+<% @teams.each do |team|%>
+<% team.name%>
+<% team.games.each do |game| %><li>
 Game Date:  <%= game.game_date %></br>
 Game Time:  <%= game.game_time %></br>
-Sport: <%= game.sports.each { |sport| sport.name} %>
+Game Field: <%= game.field.name %>
+Sport: <%= game.sport.name %></li>
 <%= link_to 'Additonal Game Details', game_path(game) %></br>
+  <% end %>
 <% end %>
 </div>
 <%= link_to 'Create Game', new_game_path %></br>

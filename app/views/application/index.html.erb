@@ -13,6 +13,7 @@
   <%= link_to "Create a New Team", new_team_path(current_user) %>
   <%= link_to "View all teams", teams_path %>
   <%= link_to "View all Sports", sports_path %>
+  <%= link_to "View all my games", games_path(current_user.id)%>
   <% end %>
   <% else %>
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
