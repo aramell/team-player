@@ -11,7 +11,8 @@
 Game Date:  <%= game.game_date %></br>
 Game Time:  <%= game.game_time %></br>
 Field: <%= game.field.name  %></br>
-Sport: <%= game.sport.name %>
+Sport: <%= game.sport.name %></br>
+<%= link_to 'Delete game', game_path(game.id), method: :delete, data: {confirm: 'Are you sure?'} %>
 </ul>
 <% end %>
 </div>  

@@ -1,10 +1,9 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:edit, :show, :update] 
+  before_action :set_team, only: [:edit, :show, :update]
+  include TeamHelper
 
   def index
-
     @teams = Team.all
-
   end 
   def new
     @team = Team.new
@@ -21,21 +20,25 @@ class TeamsController < ApplicationController
 
   end
   def show
-    @teamgames = @team.games.all
+    team_games
+    set_team
     
-
   end
   def edit
     
   end
   def update
-    binding.pry
     if @team.update_attributes(team_params)
-      binding.pry
       redirect_to team_path(@team)
     else
       render 'edit'
     end
+  end
+  def destroy
+    set_team
+    @team.delete
+    redirect_to teams_path
+
   end
 
   private

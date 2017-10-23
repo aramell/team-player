@@ -1,8 +1,7 @@
 <% @teams.each do |team| %>
 
-<li><%= link_to "#{team.name}", team_path(team.id)%></li>
+<li><strong><%= link_to "#{team.name}", team_path(team.id)%></strong>
 
-<% end %>
-<%= form_tag destroy_multiple_teams_path, :methods: 'delete'  do %>
-<%= check_box_tag "teams[]" :t,teameams, Team.all, :id, :name %>
+
+<%= link_to "Delete Team", team_path(team.id), method: :delete, data: {confirm: 'Are you sure?'} %></li>
   <% end %>

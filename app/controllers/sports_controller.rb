@@ -1,4 +1,5 @@
 class SportsController < ApplicationController
+  include SportHelper
 
   def index
   
@@ -18,9 +19,9 @@ class SportsController < ApplicationController
 
   end
   
-  def set_sport
-    @sport = Sport.find_by(:id => params[:id])
+  # def set_sport
+  #   @sport = Sport.find_by(:id => params[:id])
 
-  end
+  # end
 
 end
