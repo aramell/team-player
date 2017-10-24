@@ -1,3 +1,4 @@
 <% @sports.each do |sport|%>
-  <%= link_to "#{sport.name}", sport_path(sport.id)%>
+  <li><%= link_to "#{sport.name}", sport_path(sport.id)%> </li>
   <% end %>
+  
