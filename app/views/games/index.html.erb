@@ -1,6 +1,12 @@
 <h3>All Games for <strong><%=current_user.email %>:</strong></h3> 
-
-
+<% if @todays_games.empty?%>
+  <%= puts "no games today"%>
+  <% else%>
+    Todays Games
+  <% @todays_games.each do |game|%>
+    <%= render 'game_details', :game => game %>
+  <% end %>
+<% end %>
 <% @teams.each do |team|%>
 <% team.name%>
 <% team.games.each do |game| %>
@@ -11,3 +17,4 @@
 </div>
 <%= link_to 'Create Game', new_game_path %></br>
 <%= link_to 'Home', root_path %>
+

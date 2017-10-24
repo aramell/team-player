@@ -13,7 +13,7 @@ class Team < ApplicationRecord
           self.team_sports.build(:sport => sport)
     end
   end
-
+    
     def show_users
       @team.users.each do |user|
         user.name
