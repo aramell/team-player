@@ -3,11 +3,11 @@
 
 <% @teams.each do |team|%>
 <% team.name%>
-<% team.games.each do |game| %><li>
+<% team.games.each do |game| %>
   <%= render 'game_details', :game => game%>
 <%= link_to 'Additonal Game Details', game_path(game) %></br>
   <% end %>
-<% end %>
+<% end %></li>
 </div>
 <%= link_to 'Create Game', new_game_path %></br>
 <%= link_to 'Home', root_path %>

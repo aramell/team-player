@@ -1,5 +1,5 @@
 
-<h3>Create New Game for <strong><%=@team.name%></strong></h3>
+<h3>Create New Game </h3>
 <div class="field">
 <%= form_for @game, :url => {:controller => "games", :action => "create"} do |f| %>
  <% if @game.errors.any? %>
