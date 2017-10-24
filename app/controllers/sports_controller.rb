@@ -26,9 +26,13 @@ class SportsController < ApplicationController
   def destroy
     set_sport
     set_team
-    @sport.delete
+    binding.pry
+    if @sport.delete
 
-    redirect_to team_path(team.id)
+    redirect_to teams_path
+    else
+      redirect_to team
+    end
 
   end
 
