@@ -1,0 +1,22 @@
+
+
+
+<%= form_for @sport do |f| %>
+  <% if @sport.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sport.errors.count, "error") %> prohibited this user from being saved:</h2>
+ 
+      <ul>
+      <% @sport.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+Sport Name <%= f.label :Name %>
+<%= f.text_field :name %>
+<%= f.hidden_field :team_id%>
+<%= f.submit %>
+<% end %></br>
+
+  <%= link_to "Home", root_path %>

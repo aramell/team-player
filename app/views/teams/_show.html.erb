@@ -1,7 +1,7 @@
 <strong>Team Name:</strong> <%= @team.name%></br>
 
 <strong>Sports this team plays:</strong><% @team.sports.each do |sport| %>
-  <li><%= sport.name%></li>
+  <li><%= sport.name%></li> <%= link_to "Delete sport", sport_path(sport.id), method: :delete, data: {confirm: 'Are you sure?'}%>
   <% end %>
 </br>
 <div class="field">
@@ -17,6 +17,7 @@ Sport: <%= game.sport.name %></br>
 <% end %>
 </div>  
 <%= link_to 'Create Game for this Team', newgame_path(@team.id) %></br>
+<%= link_to 'Create Sport for this Team', newsport_path(@team.id) %></br>
 <%= link_to 'Edit this team', edit_team_path(@team.id)%></br>
 
 <%= link_to 'Home', root_path %>

@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/teams/:id/games', to: 'games#index', as: 'games'
   get '/teams/:id/users', to: 'users#show', as: 'teamusers'
+  get '/teams/:id/sports/new', to: 'sports#new', as: 'newsport'
   resources :sports
-  resources :teams
+  resources :teams 
   resources :games
   # resources :users
   get '/auth/:provider/callback', to: 'sessions#create'
