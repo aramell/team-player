@@ -1,28 +1,24 @@
 Web App built to simplify managing a team.  Will allow managers to view players that are available to make games.  Post comments/pictures visible to their team, and overall ease the burden that goes along with managing an adult rec sports team.
 
+Has_many & Has_many, through associations
+uses Devise/Omniauth (Facebook)
+nested attributes/forms
+nested resources
+custom attribute setter
+Activerecord Scope method
+Validation errors
 
 
-# README
+installation
+1 - git clone git@github.com:ramell86/team-player.git
+2 - cd team player
+3 - bundle install
+4 - rake db:migrate
+5 - rails s
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Usage:
+Users can signin through Facebook or 
 
-Things you may want to cover:
+License
+The gem is available as open source under the terms of the MIT License.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
