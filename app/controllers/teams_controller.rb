@@ -6,16 +6,18 @@ class TeamsController < ApplicationController
     @teams = Team.all
   end 
   def new
+    @users = User.all
     @team = Team.new
     @team.sports.build
   end
   def create
+    binding.pry
     @team = current_user.teams.build(team_params)
+    binding.pry
     if @team.save
       redirect_to team_path(@team)
     else
       render 'new'
-
     end
 
   end
@@ -43,7 +45,7 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :positions, :game_id, :sport_ids => [], :sports_attributes => [:name, :id])
+    params.require(:team).permit(:name, :positions, :game_id, :sport_ids => [],:user_ids => [], :sports_attributes => [:name, :id])
 
   end
   def set_team

@@ -16,6 +16,7 @@
 New Team <%= f.label :Name %>
 <%= f.text_field :name %>
 <!-- add team sport option -->
+<%= f.collection_check_boxes :user_ids, User.all, :id, :email %></br>
 <%= f.collection_check_boxes :sport_ids, Sport.all, :id, :name %> </br>
 <%= f.fields_for :sports do |d|%>
 <p>create new sport</p>  <%= d.text_field :name%>

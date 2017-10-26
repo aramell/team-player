@@ -31,7 +31,8 @@ class GamesController < ApplicationController
     set_team
     # binding.pry
     @game.destroy
-    redirect_to 'root'
+    
+    redirect_to root_path
   end
 
   private
