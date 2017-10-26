@@ -2,4 +2,7 @@
 Game Date:  <%= game.game_date.strftime("%b %d, %Y") %></br>
 Game Time:  <%= game.game_time.strftime("%I:%M:%S %p") %></br>
 Game Field: <%= game.field.name %></br>
-Sport: <%= game.sport.name %></ul>
+<%= link_to 'Delete game', game_path(game.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+
+</ul> 
+

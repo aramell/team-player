@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   def index
     @teams = current_user.teams
     @todays_games = Game.today_games 
-    binding.pry
+    @other_games = Game.other_games
   end
   
   def new
@@ -29,8 +29,9 @@ class GamesController < ApplicationController
   def destroy
     set_game
     set_team
+    # binding.pry
     @game.destroy
-    redirect_to teams_path(params[:team_id])
+    redirect_to 'root'
   end
 
   private

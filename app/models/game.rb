@@ -6,7 +6,7 @@ class Game < ApplicationRecord
   belongs_to :field
   validates :game_time, :game_date, presence: true
   scope :today_games, -> {where(:game_date => Time.zone.now.beginning_of_day)}
-
+  # scope :other_games, -> {where(:game_date => !Time.zone.now.beginning_of_day)}
   
   
   def self.team_games(current_user)
@@ -14,6 +14,9 @@ class Game < ApplicationRecord
     current_user.team
   end
   
+  def self.other_games
+    @other_games = Game.all - Game.today_games
+  end
   
 end
 
