@@ -10,6 +10,7 @@ class Game < ApplicationRecord
   
   
   def self.team_games(current_user)
+    binding.pry
     current_user
     current_user.team
   end
