@@ -2,6 +2,12 @@ class GamesController < ApplicationController
   include GameHelper
   include TeamHelper
   def index
+    @games = current_user.games
+    respond_to do |f|
+      f.html 
+      f.json {render json: @games}
+    end
+    
     # @teams = current_user.teams
     # @todays_games = Game.today_games 
     # @other_games = Game.other_games

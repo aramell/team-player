@@ -3,7 +3,11 @@ class TeamsController < ApplicationController
   include TeamHelper
 
   def index
-    @teams = Team.all
+     @teams = Team.all
+      respond_to do |f|
+        f.html 
+        f.json {render json: @teams}
+      end
   end 
   def new
     @users = User.all
@@ -11,7 +15,6 @@ class TeamsController < ApplicationController
     @team.sports.build
   end
   def create
-    binding.pry
     @team = current_user.teams.build(team_params)
     binding.pry
     if @team.save
