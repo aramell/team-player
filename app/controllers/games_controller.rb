@@ -2,9 +2,9 @@ class GamesController < ApplicationController
   include GameHelper
   include TeamHelper
   def index
-    @teams = current_user.teams
-    @todays_games = Game.today_games 
-    @other_games = Game.other_games
+    # @teams = current_user.teams
+    # @todays_games = Game.today_games 
+    # @other_games = Game.other_games
   end
   
   def new
