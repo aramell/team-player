@@ -5,7 +5,11 @@ class SportsController < ApplicationController
   def index
   
     @sports = Sport.all
-    
+    respond_to do |f|
+      f.html 
+      f.json {render json: @sports}
+    end
+     
     render 'sports/index', :layout=> false
   end
   def new

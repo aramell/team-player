@@ -22,4 +22,14 @@ $(function(){
         })
 
   })
+  $('.games').on('click', function(e){
+    e.preventDefault()
+    $.get("/games")
+      .done(function(data){
+        $('.user_games').html(data)
+      })
+      .fail(function(data){
+        console.log(data)
+      })
+  })
 })

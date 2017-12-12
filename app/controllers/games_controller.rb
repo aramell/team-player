@@ -3,14 +3,19 @@ class GamesController < ApplicationController
   include TeamHelper
   def index
     @games = current_user.games
+    @todays_games = Game.today_games 
+    @other_games = Game.other_games
+    
+    
+    # binding.pry
     respond_to do |f|
       f.html 
-      f.json {render json: @games}
+      f.json {render :json => {:games => @games, 
+                               :current_games => @current_games,
+                               :todays_games => @todays_games}}
     end
-    
-    # @teams = current_user.teams
-    # @todays_games = Game.today_games 
-    # @other_games = Game.other_games
+
+    render "games/index", :layout=> false
   end
   
   def new

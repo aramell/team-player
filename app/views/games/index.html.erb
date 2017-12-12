@@ -1,6 +1,6 @@
 <h3>All Games </h3> 
-<% binding.pry%>
-<% if @todays_games.empty?%>
+
+<% if @todays_games.empty? || @todays_games.nil?%>
   <%= puts "no games today"%>
   <% else%>
     Todays Games

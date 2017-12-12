@@ -18,7 +18,9 @@
   <%= link_to "View all Sports", sports_path, class: "sports" %> </br>
   <div class="all_sports">
   </div>
-  <%= link_to "View all games", games_path(current_user.id)%>
+  <%= link_to "View all games", games_path(current_user.id), class: "games"%>
+  <div class="user_games">
+  </div>
 
   <% else %>
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
