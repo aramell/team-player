@@ -10,11 +10,14 @@
 <h3>My teams</h3>
 <% current_user.teams.each do |team| %>
  <p>Click on each team for more information: <li><%= link_to "#{team.name}", team_path(team) %></li> </br>
-  <%= link_to "Create a New Team", new_team_path(current_user) %>
-  <%= link_to "View all teams", teams_path %> </br>
+  <% end %>
+  <%= link_to "Create a New Team", new_team_path(current_user) %></br>
+  <%= link_to "View all teams", teams_path, class: "teams"  %> </br>
+  <div class="all_teams">
+  </div>
   <%= link_to "View all Sports", sports_path %> </br>
   <%= link_to "View all games", games_path(current_user.id)%>
-  <% end %>
+
   <% else %>
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
   <%= link_to "All Users", users_path%></br>
