@@ -15,7 +15,9 @@
   <%= link_to "View all teams", teams_path, class: "teams"  %> </br>
   <div class="all_teams">
   </div>
-  <%= link_to "View all Sports", sports_path %> </br>
+  <%= link_to "View all Sports", sports_path, class: "sports" %> </br>
+  <div class="all_sports">
+  </div>
   <%= link_to "View all games", games_path(current_user.id)%>
 
   <% else %>

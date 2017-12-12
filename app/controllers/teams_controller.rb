@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
         f.html 
         f.json {render json: @teams}
       end
+      render 'teams/index', :layout=> false
   end 
   def new
     @users = User.all

@@ -5,6 +5,8 @@ class SportsController < ApplicationController
   def index
   
     @sports = Sport.all
+    
+    render 'sports/index', :layout=> false
   end
   def new
     
