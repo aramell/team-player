@@ -9,13 +9,11 @@ class GamesController < ApplicationController
     
     # binding.pry
     respond_to do |f|
-      f.html 
-      f.json {render :json => {:games => @games, 
-                               :current_games => @current_games,
-                               :todays_games => @todays_games}}
+      # f.html 
+      f.json {render json: @games}
     end
 
-    render "games/index", :layout=> false
+     render :layout=> false
   end
   
   def new

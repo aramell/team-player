@@ -5,10 +5,10 @@ class TeamsController < ApplicationController
   def index
      @teams = Team.all
       respond_to do |f|
-        f.html 
+        # f.html 
         f.json {render json: @teams}
       end
-      render 'teams/index', :layout=> false
+      # render :layout=> false
   end 
   def new
     @users = User.all
@@ -28,7 +28,11 @@ class TeamsController < ApplicationController
   def show
     team_games
     set_team
-    
+    respond_to do |f|
+      f.html 
+      f.json {render json: @team}
+    end
+    render :layout=> false
   end
   def edit
     

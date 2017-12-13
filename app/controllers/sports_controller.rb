@@ -6,11 +6,11 @@ class SportsController < ApplicationController
   
     @sports = Sport.all
     respond_to do |f|
-      f.html 
+      # f.html 
       f.json {render json: @sports}
     end
      
-    render 'sports/index', :layout=> false
+    # render :layout=> false
   end
   def new
     

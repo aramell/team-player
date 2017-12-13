@@ -9,8 +9,11 @@
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
 <h3>My teams</h3>
 <% current_user.teams.each do |team| %>
- <p>Click on each team for more information: <li><%= link_to "#{team.name}", team_path(team) %></li> </br>
+ <p>Click on each team for more information: <li><%= link_to "#{team.name}", team_path(team), class: "team" %></li> </br>
+  <div class="team-show">
+  </div>
   <% end %>
+  
   <%= link_to "Create a New Team", new_team_path(current_user) %></br>
   <%= link_to "View all teams", teams_path, class: "teams"  %> </br>
   <div class="all_teams">
