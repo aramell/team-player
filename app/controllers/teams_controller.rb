@@ -17,7 +17,6 @@ class TeamsController < ApplicationController
   end
   def create
     @team = current_user.teams.build(team_params)
-    binding.pry
     if @team.save
       redirect_to team_path(@team)
     else
@@ -29,10 +28,10 @@ class TeamsController < ApplicationController
     team_games
     set_team
     respond_to do |f|
-      f.html 
+      # f.html 
       f.json {render json: @team}
     end
-    render :layout=> false
+    #  render :layout=> false
   end
   def edit
     

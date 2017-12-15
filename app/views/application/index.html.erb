@@ -15,6 +15,11 @@
   <% end %>
   
   <%= link_to "Create a New Team", new_team_path(current_user) %></br>
+  
+  <%= form_for @teams do |f|%>
+    <%= f.text_area :name %> 
+    <p> <%=f.submit %> </p>
+    <% end %>
   <%= link_to "View all teams", teams_path, class: "teams"  %> </br>
   <div class="all_teams">
   </div>

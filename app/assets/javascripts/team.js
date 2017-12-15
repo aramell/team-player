@@ -1,7 +1,7 @@
 
 
 $(function(){
-    $('.teams').click(function(e){
+    $('.teams').on('on', function(e){
       e.preventDefault();
       // $.get("/teams")
       //   .done(function(data){
@@ -19,7 +19,7 @@ $(function(){
           })
         })
   })
-  $('.sports').click(function(e){
+  $('.sports').on('click', function(e){
       e.preventDefault()
       // $.get("/sports")
       //   .done(function(data){
@@ -37,7 +37,7 @@ $(function(){
         })
 
   })
-  $('.games').click(function(e){
+  $('.games').on('click', function(e){
     e.preventDefault()
     // $.get("/games")
     //   .done(function(data){
@@ -58,13 +58,33 @@ $(function(){
         alert('failed')
       })
   })
-  $('.team').click(function(e){
+  $('.team').on('click', function(e){
     e.preventDefault()
+    
     $.get(this.href)
-    .done(function(json){
-      
-      $('.team-show').html(json)
+     .done(function(json){
+       
+       var $div = $('.team-show')
+       debugger
+       if (json.games === true) json.games.ForEach(function(game){
+         $div.append("<li>" + game.name + "</li>")
+       })
+       json.sports.forEach(function(sport){
+       $div.append("<li>" + sport.name + "</li" )
+      })
+      // $('.team-show').fadeToggle(sports)
 
     })
   })
+  $('.new_team').on('submit', function(e){
+    e.preventDefault()
+    debugger
+    $.post(this.href)
+    debugger
+      .done(function(data){
+        debugger
+      })
+  })
 })
+// have json parsed 
+//.on('page:change') - what does this do?

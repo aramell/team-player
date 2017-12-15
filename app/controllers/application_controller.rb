@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   
   def index
     # binding.pry
+    @teams = Team.new
+
   end
   
   
