@@ -85,18 +85,16 @@ $(document).on('turbolinks:load', function(){
         $('.new_team').on('submit', function(e){
           e.preventDefault()
           
-          $.ajax({
-            type: 'post',
-            url: this.action,
-            data: this.data,
-            success: function(response){
+          $.post(this.action, $('.new_team').serialize(), function(data){
               debugger
-            }
+
           })
-          
+            
         })
-      })
+          
     })
+  })
+  
       
       // })
       // have json parsed 
