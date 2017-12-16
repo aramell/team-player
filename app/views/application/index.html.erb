@@ -1,11 +1,12 @@
 <h2>Welcome to the Team Player app</h2></br>
 <% if current_user %>
-  <%= current_user.email%></br>
+  <%= current_user.email%><p>Is Logged In </p> </br>
   <% else %>
 <%= link_to "Sign Up for Team Player", new_user_registration_path %></br>
 <%= link_to "Already a user? - Sign In", new_user_session_path %></br>
   <% end %>
 <% if user_signed_in? && !current_user.teams.empty? %>
+
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
 <h3>My teams</h3>
 <% current_user.teams.each do |team| %>
@@ -13,13 +14,15 @@
   <div class="team-show">
   </div>
   <% end %>
-  
-  <%= link_to "Create a New Team", new_team_path(current_user) %></br>
-  
+
+  <%= link_to "Create a New Team", new_team_path(current_user), class: "new-team" %></br>
+  <div id="teamform">
   <%= form_for @teams do |f|%>
     <%= f.text_area :name %> 
-    <p> <%=f.submit %> </p>
+    <p> <%=f.submit "Create a New Team"%> </p>
     <% end %>
+    </div>
+  
   <%= link_to "View all teams", teams_path, class: "teams"  %> </br>
   <div class="all_teams">
   </div>
@@ -33,6 +36,10 @@
   <% else %>
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
   <%= link_to "All Users", users_path%></br>
+    <%= form_for @teams do |f|%>
+    <%= f.text_area :name %> 
+    <p> <%=f.submit "Create a New Team"%> </p>
+    <% end %>
   <%= link_to "Create a Team", new_team_path(current_user) %>
 
 <% end %>

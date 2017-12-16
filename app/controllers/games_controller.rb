@@ -13,7 +13,7 @@ class GamesController < ApplicationController
       f.json {render json: @games}
     end
 
-     render :layout=> false
+    #  render :layout=> false
   end
   
   def new

@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   def index
      @teams = Team.all
       respond_to do |f|
-        # f.html 
+        #   f.html 
         f.json {render json: @teams}
       end
       # render :layout=> false
@@ -18,15 +18,16 @@ class TeamsController < ApplicationController
   def create
     @team = current_user.teams.build(team_params)
     if @team.save
-      redirect_to team_path(@team)
+      redirect_to '/'
     else
-      render 'new'
+      render '/'
     end
 
   end
   def show
     team_games
     set_team
+    
     respond_to do |f|
       # f.html 
       f.json {render json: @team}
@@ -53,7 +54,7 @@ class TeamsController < ApplicationController
   private
   def team_params
     params.require(:team).permit(:name, :positions, :game_id, :sport_ids => [],:user_ids => [], :sports_attributes => [:name, :id])
-
+    
   end
   def set_team
     @team = Team.find_by(:id => params[:id])
