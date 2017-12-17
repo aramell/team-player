@@ -85,8 +85,17 @@ $(document).on('turbolinks:load', function(){
         $('.new_team').on('submit', function(e){
           e.preventDefault()
           
-          $.post(this.action, $('.new_team').serialize(), function(data){
-              debugger
+          var data = $('#new_team').serialize()
+          // debugger
+          $.ajax({
+            url: this.action,
+            method: 'POST',
+            data: data,
+            success: function(result){
+              // debugger
+              console.log(result)
+              $('.team-show').html(result)
+            }        
 
           })
             

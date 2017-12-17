@@ -18,6 +18,8 @@ class TeamsController < ApplicationController
   def create
     @team = current_user.teams.build(team_params)
     if @team.save
+      # respond_to do |f|
+      #   f.json {render json: @team}
       redirect_to '/'
     else
       render '/'
