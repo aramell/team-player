@@ -1,5 +1,5 @@
 
-$(document).on('turbolinks:load', function(){
+// $(document).on('turbolinks:load', function(){
       $(function(){
           $('.teams').on('click', function(e){
             e.preventDefault();
@@ -92,9 +92,13 @@ $(document).on('turbolinks:load', function(){
             method: 'POST',
             data: data,
             success: function(result){
-              // debugger
-              console.log(result)
-              $('.team-show').html(result)
+             
+              // $.each(result, function(i, value){
+              $('#teams').append(result)
+            
+              
+              // $('#teams').append(result)
+              //  })
             }        
 
           })
@@ -102,7 +106,7 @@ $(document).on('turbolinks:load', function(){
         })
           
     })
-  })
+  // })
   
       
       // })

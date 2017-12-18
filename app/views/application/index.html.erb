@@ -11,9 +11,9 @@
 <h3>My teams</h3>
 <p>Click on each team for more information: </p>
 <% current_user.teams.each do |team| %>
-  <li><%= link_to "#{team.name}", team_path(team), class: "team" %></li> </br>
-  <div class="team-show">
-  </div>
+<ul>
+  <li id="teams"><%= link_to "#{team.name}", team_path(team), class: "team" %></li> </br>
+    </ul>
   <% end %>
 
   <%= link_to "Create a New Team", new_team_path(current_user), class: "new-team" %></br>
