@@ -59,13 +59,14 @@
               alert('failed')
             })
         })
+        ///
         $('.team').on('click', function(e){
           e.preventDefault()
-          $(this).closest('li').toggle()
+          // $(this).closest('li').show()
           $.get(this.href)
            .done(function(json){
             
-             
+             debugger
              $('#showteam').append(json)
             //  if (json.games === true) json.games.ForEach(function(game){
             //    $div.append("<li>" + game.name + "</li>")
@@ -95,8 +96,8 @@
              
               // $.each(result, function(i, value){
               $('#teams').append(result)
+              $('#team_name').val("")
             
-              
               // $('#teams').append(result)
               //  })
             }        

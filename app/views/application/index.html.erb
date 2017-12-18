@@ -25,7 +25,7 @@
   <div id="teamform">
   <%= form_for @teams do |f|%>
     <%= f.text_area :name %> 
-    <p> <%=f.submit "Create a New Team"%> </p>
+    <p> <%=f.submit "Create New Team", data: { disable_with: false }%> </p>
     <% end %>
     </div>
   
