@@ -14,7 +14,12 @@
 <ul>
   <li id="teams"><%= link_to "#{team.name}", team_path(team), class: "team" %></li> </br>
     </ul>
+     <div style="display:none;" id="showteam">
+</div>
   <% end %>
+ 
+
+<button type="button" id="show-partial" />
 
   <%= link_to "Create a New Team", new_team_path(current_user), class: "new-team" %></br>
   <div id="teamform">

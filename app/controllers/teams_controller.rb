@@ -30,10 +30,10 @@ class TeamsController < ApplicationController
     set_team
     
     respond_to do |f|
-      # f.html 
+      f.html 
       f.json {render json: @team}
     end
-    #  render :layout=> false
+     render :layout=> false
   end
   def edit
     

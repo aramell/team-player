@@ -61,18 +61,18 @@
         })
         $('.team').on('click', function(e){
           e.preventDefault()
-
+          $(this).closest('li').toggle()
           $.get(this.href)
            .done(function(json){
-
-             var $div = $('.team-show')
-             debugger
-             if (json.games === true) json.games.ForEach(function(game){
-               $div.append("<li>" + game.name + "</li>")
-             })
-             json.sports.forEach(function(sport){
-             $div.append("<li>" + sport.name + "</li" )
-            })
+            
+             
+             $('#showteam').append(json)
+            //  if (json.games === true) json.games.ForEach(function(game){
+            //    $div.append("<li>" + game.name + "</li>")
+            //  })
+            //  json.sports.forEach(function(sport){
+            //  $div.append("<li>" + sport.name + "</li" )
+            // })
             // $('.team-show').fadeToggle(sports)
           
           })
