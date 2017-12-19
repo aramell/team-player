@@ -1,6 +1,7 @@
 
 // $(document).on('turbolinks:load', function(){
       $(function(){
+        //all teams
           $('.teams').on('click', function(e){
             e.preventDefault();
 
@@ -11,15 +12,22 @@
             //   .fail(function(data){
             //     console.log(data)
             //   })
+
+            
             $.get(this.href)
               .done(function(json){
+                
                 json.forEach(function(team){
 
                   $('.all_teams').append("<li>" + team.name + "</li>")
-
+                   
+                })
+                .error(function(){
+                  alert('that did not work')
                 })
               })
         })
+        //view all sports
         $('.sports').on('click', function(e){
             e.preventDefault()
             // $.get("/sports")
@@ -38,6 +46,7 @@
               })
             
         })
+        //view all games 
         $('.games').on('click', function(e){
           e.preventDefault()
           // $.get("/games")
@@ -78,6 +87,7 @@
           
           })
         })
+        // new team 
         $('.new-team').on('click',function(e){
           e.preventDefault()
           
