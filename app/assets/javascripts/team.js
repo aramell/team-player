@@ -4,17 +4,11 @@
         //all teams
           $('.teams').on('click', function(e){
             e.preventDefault();
-
-            // $.get("/teams")
-            //   .done(function(data){
-            //     $('.all_teams').html(data)
-            //   })
-            //   .fail(function(data){
-            //     console.log(data)
-            //   })
-
-            
-            $.get(this.href)
+            $.ajax({
+              url: this.href,
+              dataType: "json"
+                       
+            })
               .done(function(json){
                 
                 json.forEach(function(team){
@@ -30,13 +24,6 @@
         //view all sports
         $('.sports').on('click', function(e){
             e.preventDefault()
-            // $.get("/sports")
-            //   .done(function(data){
-            //     $('.all_sports').html(data)
-            //   })
-            //   .fail(function(data){
-            //     console.log(data)
-            //   })
             //json below
             $.get(this.href)
               .done(function(json){
@@ -46,17 +33,10 @@
               })
             
         })
-        //view all games 
+        //view all games needs work
         $('.games').on('click', function(e){
           e.preventDefault()
-          // $.get("/games")
-          //   .done(function(data){
-          //     $('.user_games').html(data)
-          //   })
-          //   .fail(function(data){
-          //     console.log(data)
-          //   })
-          //json below
+          
           $.ajax({
             type: 'get',
             url: this.href,
@@ -93,7 +73,7 @@
           
           $('#teamform').toggle()
         })
-        $('.new_team').on('submit', function(e){
+        $('form.new_team').on('submit', function(e){
           e.preventDefault()
           
           var data = $('#new_team').serialize()

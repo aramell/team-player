@@ -5,7 +5,6 @@ class TeamsController < ApplicationController
   def index
      @teams = Team.all
       respond_to do |f|
-        #   f.html 
         f.json {render json: @teams}
       end
       # render :layout=> false
