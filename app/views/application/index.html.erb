@@ -10,13 +10,12 @@
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
 <h3>My teams</h3>
 <p>Click on each team for more information: </p>
+<ul id="teamlist">
 <% current_user.teams.each do |team| %>
-<ul>
   <li id="teams"><%= link_to "#{team.name}", team_path(team), class: "team" %></li> </br>
-    </ul>
-     <div style="display:none;" id="showteam">
-</div>
-  <% end %>
+ <% end %>
+ </ul>
+
  
 
 <button type="button" id="show-partial" />
@@ -51,7 +50,5 @@
 <% end %>
 
 <script id="team-template" type="text/x-handlebars-template">
-<ul>
 <li id="teams"><a class="team" href="/teams/{{id}}">{{name}}</a></li>
-</ul>
 </script>

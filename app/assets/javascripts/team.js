@@ -97,11 +97,11 @@
             data: data,
             success: function(result){
              var team = new Team(result) //json to js object
-            var teamli = team.renderLI()
+            var teamLi = team.renderLi()
              debugger
               // $.each(result, function(i, value){
-              $('#teams').append(teamLi)
-              $('#team_name').val("")
+              $('#teamlist').append(teamLi)
+              // $('#team_name').val("")
             
               // $('#teams').append(result)
               //  })
