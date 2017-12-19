@@ -3,10 +3,15 @@
        this.name = attributes.name;
        this.id = attributes.id;
      }
-     Item.prototype.renderLI = function(){
-       
-     }
-     
+     $(function(){
+     Team.templateSource = $("#team-template").html()
+
+     Team.template = Handlebars.compile(Team.templateSource)
+     })
+     Team.prototype.renderLi = function(){
+      return Team.template(this)
+      }
+  
      
      $(function(){
         //all teams

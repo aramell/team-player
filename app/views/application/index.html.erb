@@ -49,3 +49,9 @@
   <%= link_to "Create a Team", new_team_path(current_user) %>
 
 <% end %>
+
+<script id="team-template" type="text/x-handlebars-template">
+<ul>
+<li id="teams"><a class="team" href="/teams/{{id}}">{{name}}</a></li>
+</ul>
+</script>
