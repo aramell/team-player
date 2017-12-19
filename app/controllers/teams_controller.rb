@@ -15,10 +15,12 @@ class TeamsController < ApplicationController
     @team.sports.build
   end
   def create
-    @team = current_user.teams.build(team_params)
+     @team = current_user.teams.build(team_params)
     if @team.save
-      render 'teams/team', :layout => false
-      
+      # render 'teams/team', :layout => false
+      respond_to do |f|
+        f.json {render :json => @team}
+      end
     else
       render '/'
     end

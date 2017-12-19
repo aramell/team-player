@@ -1,6 +1,14 @@
 
-// $(document).on('turbolinks:load', function(){
-      $(function(){
+     function Team(attributes){
+       this.name = attributes.name;
+       this.id = attributes.id;
+     }
+     Item.prototype.renderLI = function(){
+       
+     }
+     
+     
+     $(function(){
         //all teams
           $('.teams').on('click', function(e){
             e.preventDefault();
@@ -83,9 +91,11 @@
             method: 'POST',
             data: data,
             success: function(result){
-             
+             var team = new Team(result) //json to js object
+            var teamli = team.renderLI()
+             debugger
               // $.each(result, function(i, value){
-              $('#teams').append(result)
+              $('#teams').append(teamLi)
               $('#team_name').val("")
             
               // $('#teams').append(result)
@@ -94,10 +104,9 @@
 
           })
             
-        })
+        }) 
           
     })
-  // })
   
       
       // })
