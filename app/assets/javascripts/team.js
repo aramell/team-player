@@ -2,6 +2,8 @@
      function Team(attributes){
        this.name = attributes.name;
        this.id = attributes.id;
+       this.game_id = attributes.game_id;
+       
      }
      $(function(){
      Team.templateSource = $("#team-template").html()
@@ -14,7 +16,7 @@
   
      
      $(function(){
-        //all teams
+        //all teams bottom
           $('.teams').on('click', function(e){
             e.preventDefault();
             $.ajax({
@@ -37,12 +39,15 @@
         })
         $('.team').on('click', function(e){
           e.preventDefault()
-          // $(this).closest('li').show()
+          $('#teamshow').toggle()
           $.get(this.href)
            .done(function(json){
+             
             
              debugger
-             $('#showteam').append(json)
+             $('#teamshow').append(json)
+
+             debugger
             //  if (json.games === true) json.games.ForEach(function(game){
             //    $div.append("<li>" + game.name + "</li>")
             //  })
