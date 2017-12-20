@@ -30,7 +30,7 @@ class TeamsController < ApplicationController
     team_games
     set_team
     respond_to do |f|
-       f.html {render "teams/show"}
+      #  f.html {render "teams/show"}
       f.json {render json: @team}
     end
     #  render :layout=> false

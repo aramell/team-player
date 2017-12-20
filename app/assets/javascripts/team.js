@@ -3,17 +3,29 @@
        this.name = attributes.name;
        this.id = attributes.id;
        this.game_id = attributes.game_id;
-       
+
      }
+     /////
      $(function(){
      Team.templateSource = $("#team-template").html()
 
      Team.template = Handlebars.compile(Team.templateSource)
      })
+     /////
+     $(function(){
+      Team.templateSource = $("#show-template").html()
+      Team.template = Handlebars.compile(Team.templateSource)
+
+     })
+     
      Team.prototype.renderLi = function(){
       return Team.template(this)
       }
-  
+      ///
+      Team.prototype.show = function(){
+        return Team.template(this)
+      }
+      
      
      $(function(){
         //all teams bottom
@@ -41,13 +53,15 @@
           e.preventDefault()
           $('#teamshow').toggle()
           $.get(this.href)
-           .done(function(json){
+           .done(function(team){
+             debugger
+             var team = new Team(team)
+             var teamShow = team.show()
+            debugger
              
-            
-             debugger
-             $('#teamshow').append(json)
+             $('#teamshow').append(teamShow)
 
-             debugger
+             
             //  if (json.games === true) json.games.ForEach(function(game){
             //    $div.append("<li>" + game.name + "</li>")
             //  })
