@@ -25,12 +25,13 @@
               .done(function(json){
                 
                 json.forEach(function(team){
-                  debugger
-                  $('.all_teams').append("<li>" + team.name  + "</li>" )
+                  
+                  // $('.all_teams').append("<li>" + team.name  + "</li>" )
+                  var team = new Team(team) //json to js object
+                  var teamLi = team.renderLi()
                    
-                })
-                .error(function(){
-                  alert('that did not work')
+                    // $.each(result, function(i, value){
+                    $('.all_teams').append(teamLi)
                 })
               })
         })

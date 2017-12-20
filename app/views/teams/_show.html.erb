@@ -1,3 +1,4 @@
+<%= link_to 'Home', root_path %></br>
 
 <strong>Team Name:</strong> <%= @team.name%></br>
 
@@ -25,4 +26,5 @@ Sport: <%= game.sport.name %> <% end %></br>
 <%= link_to 'Create Game for this Team', newgame_path(@team.id) %></br>
 <%= link_to 'Create Sport for this Team', newsport_path(@team.id) %></br>
 <%= link_to 'Edit this team', edit_team_path(@team.id)%></br>
+
 
