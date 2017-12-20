@@ -25,8 +25,8 @@
               .done(function(json){
                 
                 json.forEach(function(team){
-
-                  $('.all_teams').append("<li>" + team.name + "</li>")
+                  debugger
+                  $('.all_teams').append("<li>" + team.name  + "</li>" )
                    
                 })
                 .error(function(){
@@ -34,34 +34,6 @@
                 })
               })
         })
-        //view all sports
-        $('.sports').on('click', function(e){
-            e.preventDefault()
-            //json below
-            $.get(this.href)
-              .done(function(json){
-                json.forEach(function(sport){
-                  $('.all_sports').append("<li>" + sport.name + "</li>")
-                })
-              })
-            
-        })
-        //view all games needs work
-        $('.games').on('click', function(e){
-          e.preventDefault()
-          
-          $.ajax({
-            type: 'get',
-            url: this.href,
-          })
-            .done(function(json){
-              alert('test')
-            })
-            .fail(function(json){
-              alert('failed')
-            })
-        })
-        ///
         $('.team').on('click', function(e){
           e.preventDefault()
           // $(this).closest('li').show()
@@ -98,10 +70,10 @@
             success: function(result){
              var team = new Team(result) //json to js object
             var teamLi = team.renderLi()
-             debugger
+             
               // $.each(result, function(i, value){
               $('#teamlist').append(teamLi)
-              // $('#team_name').val("")
+              $('#team_name').val("")
             
               // $('#teams').append(result)
               //  })
