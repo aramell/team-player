@@ -2,8 +2,10 @@
      function Team(attributes){
        this.name = attributes.name;
        this.id = attributes.id;
+       this.user_id = attributes.user_id;
+       this.positions = attributes.positions
        this.game_id = attributes.game_id;
-
+       this.sport_id = attributes.sport_id;
      }
      /////
      $(function(){
@@ -28,7 +30,7 @@
       
      
      $(function(){
-        //all teams bottom
+        //all teams bottom (idex)
           $('.teams').on('click', function(e){
             e.preventDefault();
             $.ajax({
@@ -49,6 +51,7 @@
                 })
               })
         })
+        // show team 
         $('.team').on('click', function(e){
           e.preventDefault()
           $('#teamshow').toggle()
@@ -56,20 +59,9 @@
            .done(function(team){
              debugger
              var team = new Team(team)
-             var teamShow = team.show()
-            debugger
-             
+             var teamShow = team.show()             
              $('#teamshow').append(teamShow)
 
-             
-            //  if (json.games === true) json.games.ForEach(function(game){
-            //    $div.append("<li>" + game.name + "</li>")
-            //  })
-            //  json.sports.forEach(function(sport){
-            //  $div.append("<li>" + sport.name + "</li" )
-            // })
-            // $('.team-show').fadeToggle(sports)
-          
           })
         })
         // new team 
