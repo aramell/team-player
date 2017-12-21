@@ -4,8 +4,15 @@
        this.id = attributes.id;
        this.user_id = attributes.user_id;
        this.positions = attributes.positions
-       this.game_id = attributes.game_id;
+       this.games = attributes.games;
        this.sport_id = attributes.sport_id;
+     }
+     function Game(attributes){
+       this.date = attributes.date;
+       this.time = attributes.time;
+       this.team_id = attributes.team_id;
+       this.sport_id = attributes.sport_id;
+       this.user_id = attributes.user_id;
      }
      /////
      $(function(){
@@ -19,6 +26,9 @@
       Team.template = Handlebars.compile(Team.templateSource)
 
      })
+    //  Handlebars.registerHelper("gameShow", function(game_time, game_date){
+    //    return game_time
+    //  })
      
      Team.prototype.renderLi = function(){
       return Team.template(this)
@@ -57,9 +67,10 @@
           $('#teamshow').toggle()
           $.get(this.href)
            .done(function(team){
-             debugger
+             
              var team = new Team(team)
-             var teamShow = team.show()             
+             var teamShow = team.show() 
+             $('#teamshow').html("")       //prevents additional       
              $('#teamshow').append(teamShow)
 
           })
