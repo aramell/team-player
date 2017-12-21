@@ -47,6 +47,8 @@
         //all teams bottom (idex)
           $('.teams').on('click', function(e){
             e.preventDefault();
+            $('.all_teams').toggle()
+            $('.all_teams').html("")
             $.ajax({
               url: this.href,
               dataType: "json"
