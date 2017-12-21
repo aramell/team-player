@@ -57,27 +57,18 @@
 </script>
 
 <script id="show-template" type="text/x-handlebars-template">
-<div id="team-show-tempate"><a class="team-show-template" href="/teams/{{id}}">{{name}}</br>
+<div id="team-show-tempate"><a class="team-show-template" href="/teams/{{id}}">Team: {{name}}</br>
   <body><p class="notice"></p>
     <p class="alert"></p>
-      <a href="/">Home</a><br>
  
-
-    
-<strong>Team Name:</strong> {{name}}<br>
-
-
-
 <ul class="game_details">
   <strong>Games:</strong><br>
-      {{#if games}}
-        {{#each this}}
-          {{game_time}}
-        {{/each}}
-       {{/if}}
+        {{games.0.game_time}}</br>
+        {{games.1.game_date}}  
+  
     <li>
     </li>
-    <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/teams/{{id}}/games/">Delete game</a>
+    <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/teams/{{id}}/games/{{this.games.id}}">Delete game</a>
 </ul>
 
 <a href="/teams/{{id}}/games/new">Create Game for this Team</a><br>
