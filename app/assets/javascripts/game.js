@@ -8,11 +8,14 @@ $(function(){
           
           $.ajax({
             type: 'get',
-            url: this.href,
-          })
-            .done(function(json){
+            url: '/games',
+            dataType: 'json',
+            success: function(json){
               alert('test')
-            })
+            }
+          })
+          
+           
             .fail(function(json){
               alert('failed')
             })

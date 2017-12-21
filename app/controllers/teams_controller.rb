@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
     set_team
     respond_to do |f|
       f.json {render json: @team}      
-      # f.html {render :show}
+      f.html {render :show}
     end
     #  render :layout=> false
   end
@@ -41,7 +41,7 @@ class TeamsController < ApplicationController
   end
   def update
     if @team.update_attributes(team_params)
-      redirect_to team_path(@team)
+      redirect_to '/'
     else
       render 'edit'
     end

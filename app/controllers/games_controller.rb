@@ -5,12 +5,12 @@ class GamesController < ApplicationController
     @games = current_user.games
     @todays_games = Game.today_games 
     @other_games = Game.other_games
-    
+    @gamesall = Game.all
     
     # binding.pry
     respond_to do |f|
       # f.html 
-      f.json {render json: @games}
+      f.json {render json: @gamesall}
     end
 
     #  render :layout=> false
@@ -24,7 +24,7 @@ class GamesController < ApplicationController
   def create
     @game = current_user.teams.last.games.new(game_params)
     if @game.save
-      redirect_to team_path(@game.team_id)
+      redirect_to '/'
     else
       @team = Team.find_by(:id => params[:team_id])
          render 'new'
