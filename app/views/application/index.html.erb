@@ -63,9 +63,13 @@
  
 <ul class="game_details">
   <strong>Games:</strong><br>
+  {{#if games}}
         {{games.0.game_time}}</br>
         {{games.1.game_date}}  
-  
+    {{else}}
+    <p> no games yet</p>
+
+  {{/if}}
     <li>
     </li>
     <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/teams/{{id}}/games/{{this.games.id}}">Delete game</a>
