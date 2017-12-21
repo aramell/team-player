@@ -23,8 +23,8 @@
      })
      /////
      $(function(){
-      Team.templateSource = $("#show-template").html()
-      Team.template = Handlebars.compile(Team.templateSource)
+      Team.templateSourceTwo = $("#show-template").html()
+      Team.templateTwo = Handlebars.compile(Team.templateSourceTwo)
 
      })
     //  Handlebars.registerHelper("gameShow", function(game){
@@ -39,7 +39,7 @@
       }
       ///
       Team.prototype.show = function(){
-        return Team.template(this)
+        return Team.templateTwo(this)
       }
       
      
