@@ -56,17 +56,13 @@
             } else {
               $.ajax({
                 url: this.href,
-                dataType: "json"
-                          
+                dataType: "json" 
               })
                 .done(function(json){
-                  
                   json.forEach(function(team){
-                    
                     // $('.all_teams').append("<li>" + team.name  + "</li>" )
                     var team = new Team(team) //json to js object
                     var teamLi = team.renderLi()
-                      
                       // $.each(result, function(i, value){
                       $('.all_teams').append(teamLi)
                   })
