@@ -96,8 +96,20 @@
                   
                   document.getElementById('teamshow').innerHTML = `<h2> ${team.name} </h2>
                   <p> Sports this team plays:</p>
-                     
+                      
+                     ${team.sports.map(function(sport){
+                         return `<li>${sport.name}</li>`
+                     })
+                    }
                   <p> Games: </p>
+                    ${team.games.map(function(game){
+                      return `<li>Game Date:${game.game_date}</li>
+                              Game Time: ${game.game_time}
+                              </br>
+                            `
+
+                    })
+                  }
 
                   <a href="/teams/${team.id}/games/new">Create Game for this Team</a><br>
                   <a href="/teams/${team.id}/edit">Edit this team</a><br>
