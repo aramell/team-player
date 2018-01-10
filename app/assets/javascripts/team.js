@@ -77,26 +77,39 @@
           e.preventDefault()
           
           var teamShow = $('#teamshow')
+          if (teamShow.css('display') == 'block' ){
+            teamShow.hide()
+          }else {
 
-          if (teamShow.children().length > 0 && teamShow.css('display') == 'none') {
-              teamShow.show()
-          } else if (teamShow.children().length > 0 && teamShow.css('display') == 'block') {
-              teamShow.hide()
-          } else {
+          // if (teamShow.children().length > 0 && teamShow.css('display') == 'none') {
+          //     teamShow.show()
+          // } else if (teamShow.children().length > 0 && teamShow.css('display') == 'block') {
+          //     teamShow.hide()
+          // } else {
                 teamShow.toggle()
                 
                 $.get(this.href)
                  .done(function(team){
 
                    var team = new Team(team)
-                   debugger
+                   
+                  
+                  document.getElementById('teamshow').innerHTML = `<h2> ${team.name} </h2>
+                  <p> Sports this team plays:</p>
+                     
+                  <p> Games: </p>
 
+                  <a href="/teams/${team.id}/games/new">Create Game for this Team</a><br>
+                  <a href="/teams/${team.id}/edit">Edit this team</a><br>
+                  <a href="/teams/${team.id}" rel="nofollow" data-method="delete">Delete Team</a><br>
+                  `   
                   //  var teamShow = team.show() 
                   //  $('#teamshow').html("")       //prevents additional       
                   //  $('#teamshow').append(teamShow)
                 
                 })
-            } 
+              }
+            
         })
         // new team 
         $('.new-team').on('click',function(e){
