@@ -2,12 +2,12 @@
      function Team(attributes){
        this.name = attributes.name;
        this.id = attributes.id;
-       this.user_id = attributes.user_id;
+       this.userID = attributes.user_id;
        this.positions = attributes.positions
        
        this.games = attributes.games;
        this.sports = attributes.sports
-       this.sport_id = attributes.sport_id;
+       this.sportID = attributes.sport_id;
      }
     //  var moment = require('moment');
 
@@ -25,11 +25,7 @@
      Team.template = Handlebars.compile(Team.templateSource)
      })
      /////
-     $(function(){
-      Team.templateSourceTwo = $("#show-template").html()
-      Team.templateTwo = Handlebars.compile(Team.templateSourceTwo)
-
-     })
+     
   
      
      Team.prototype.renderLi = function(){
@@ -42,26 +38,40 @@
         //all teams bottom (idex)
           $('.teams').on('click', function(e){
             e.preventDefault();
-            var allTeams = $('.all_teams')
+            const allTeams = $('.all_teams')
               
             if (allTeams.children().length > 0 && allTeams.css('display') == 'none') {
               allTeams.show()
             } else if (allTeams.children().length > 0 && allTeams.css('display') == 'block') {
               allTeams.hide()
             } else {
-              $.ajax({
-                url: this.href,
-                dataType: "json" 
+              
+              return fetch(this.href, {
+                headers: { 
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                },
+                 credentials: 'same-origin'
+
               })
-                .done(function(json){
-                  json.forEach(function(team){
-                    // $('.all_teams').append("<li>" + team.name  + "</li>" )
-                    var team = new Team(team) //json to js object
-                    var teamLi = team.renderLi()
-                      // $.each(result, function(i, value){
-                      $('.all_teams').append(teamLi)
-                  })
+              .then(res => res.json())
+              .then(json => {
+                  json.forEach(teamElement => {
+                  // $('.all_teams').append("<li>" + team.name  + "</li>" )
+                  let team = new Team(teamElement) //json to js object
+                  let teamLi = team.renderLi()
+                    // $.each(result, function(i, value){
+                    allTeams.append(teamLi)
                 })
+              })
+              // $.ajax({
+              //   url: this.href,
+              //   dataType: "json" 
+              // })
+              //   .done(function(json){
+              
+                  
+                
               }
             })
 
@@ -70,7 +80,7 @@
         $('.team').on('click', function(e){
           e.preventDefault()
           
-          var teamShow = $('#teamshow')
+          const teamShow = $('#teamshow')
           var team = this
           
           if (teamShow.css('display') == 'block' ){
@@ -85,7 +95,7 @@
                  .done(function(team){
                   //  var team = new Team(team)        
                             
-                  document.getElementById('teamshow').innerHTML = `<h2> ${team.name} </h2>
+                  teamShow.innerHTML = `<h2> ${team.name} </h2>
                   <p><strong> Sports this team plays:</strong></p>
                     ${team.sports.map(function(sport){
                          return `<li>${sport.name}</li>`
