@@ -10,17 +10,17 @@
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
 <h3>My teams</h3>
 <p>Click on each team for more information: </p>
+
+<div>
 <ul id="teamlist">
 <% current_user.teams.each do |team| %>
   <li id="teams"><%= link_to "#{team.name}", team_path(team), class: "team" %></li> </br>
  <% end %>
  </ul>
+ </div>
  <div id="teamshow">
 
  </div>
-
- 
-
 <button type="button" id="show-partial"</button>
 
   <%= link_to "Create a New Team", new_team_path(current_user), class: "new-team" %></br>
@@ -58,23 +58,21 @@
 
 <script id="show-template" type="text/x-handlebars-template">
 <div id="team-show-tempate"><a class="team-show-template" href="/teams/{{id}}"></a>Team: {{name}}</br>
-  
- 
-<ul class="game_details">
-  Sports: </br>  {{#if sports}} 
-              {{this}}
-            {{/if}}
-  <strong>Games:</strong><br>
-  {{#if games}}
-    <p>Game Time:</p>    {{{games.0.game_time}}}</br>
-    <p>Game Date: </p>    {{games.1.game_date}}  
-      {{else}}
-    <p> no games yet</p>
+    <ul class="game_details">
+      Sports: </br>  {{#if sports}} 
+                  {{this}}
+                {{/if}}
+      <strong>Games:</strong><br>
+      {{#if games}}
+        <p>Game Time:</p>    {{{games.0.game_time}}}</br>
+        <p>Game Date: </p>    {{games.1.game_date}}  
+          {{else}}
+        <p> no games yet</p>
 
-  {{/if}}
-    
-    <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/teams/{{id}}/games/{{games.0.id}}">Delete game</a>
-</ul>
+      {{/if}}
+
+        <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/teams/{{id}}/games/{{games.0.id}}">Delete game</a>
+    </ul>
 
 <a href="/teams/{{id}}/games/new">Create Game for this Team</a><br>
 <a href="/teams/{{id}}/sports/new">Create Sport for this Team</a><br>

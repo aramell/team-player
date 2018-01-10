@@ -75,20 +75,29 @@
         //     $('.all_teams').html("")
             
         // // show team 
-        // $('.team').on('click', function(e){
-        //   e.preventDefault()
-        //   $('#teamshow').toggle()
-        //   $.get(this.href)
-        //    .done(function(team){
-        //     //  debugger
-        //      var team = new Team(team)
-             
-        //      var teamShow = team.show() 
-        //      $('#teamshow').html("")       //prevents additional       
-        //      $('#teamshow').append(teamShow)
+        $('.team').on('click', function(e){
+          e.preventDefault()
+          
+          var teamShow = $('#teamshow')
 
-        //   })
-        // })
+          if (teamShow.children().length > 0 && teamShow.css('display') == 'none') {
+              teamShow.show()
+          } else if (teamShow.children().length > 0 && teamShow.css('display') == 'block') {
+              teamShow.hide()
+          } else {
+                $('#teamshow').toggle()
+                $.get(this.href)
+                 .done(function(team){
+                  //  debugger
+                   var team = new Team(team)
+
+                   var teamShow = team.show() 
+                   $('#teamshow').html("")       //prevents additional       
+                   $('#teamshow').append(teamShow)
+                
+                })
+            } 
+        })
         // new team 
         $('.new-team').on('click',function(e){
           e.preventDefault()
