@@ -36,12 +36,7 @@
        
       return Team.template(this)
       }
-      ///
-      Team.prototype.show = function(){
-        
-        return Team.templateTwo(this)
-      }
-      
+   
      
      $(function(){
         //all teams bottom (idex)
@@ -70,26 +65,26 @@
               }
             })
 
-        //       allTeams.children()
-        //     debugger
-        //     $('.all_teams').html("")
-            
+       
         // // show team 
         $('.team').on('click', function(e){
           e.preventDefault()
           
           var teamShow = $('#teamshow')
+          var team = this
+          
           if (teamShow.css('display') == 'block' ){
-            teamShow.fadeToggle()
+            teamShow.slideToggle()
             
           } else if ($(e.target).is('.container-fluid')){
-            teamShow.fadeToggle()
+            teamShow.slideToggle()
           } else {
-                teamShow.fadeToggle()
+                teamShow.slideToggle()
                 
                 $.get(this.href)
                  .done(function(team){
-                   var team = new Team(team)                  
+                  //  var team = new Team(team)        
+                            
                   document.getElementById('teamshow').innerHTML = `<h2> ${team.name} </h2>
                   <p><strong> Sports this team plays:</strong></p>
                     ${team.sports.map(function(sport){
@@ -102,7 +97,7 @@
                               Game Time: ${game.game_time}
                               </br>
                             `
-                    })
+                    }).join('')
                   }
                   <a href="/teams/${team.id}/games/new">Create Game for this Team</a><br>
                   <a href="/teams/${team.id}/edit">Edit this team</a><br>

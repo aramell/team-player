@@ -19,14 +19,15 @@
  </ul>
  </div>
  <div id="teamshow">
-
  </div>
+ 
 <button type="button" id="show-partial"</button>
 
   <%= link_to "Create a New Team", new_team_path(current_user), class: "new-team" %></br>
   <div id="teamform">
   <%= form_for @teams do |f|%>
-    <%= f.text_area :name %> 
+    <%= f.text_area :name %> </br>
+    <%= f.collection_check_boxes :sport_ids, Sport.all, :id, :name %> </br>
     <p> <%=f.submit "Create New Team", data: { disable_with: false }%> </p>
     <% end %>
     </div>
