@@ -49,7 +49,7 @@ class TeamsController < ApplicationController
   def destroy
     set_team
     @team.delete
-    redirect_to teams_path
+    redirect_to '/'
 
   end
 

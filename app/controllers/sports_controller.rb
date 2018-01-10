@@ -19,6 +19,7 @@ class SportsController < ApplicationController
   end
 
   def create
+    binding.pry
     @sport = Sport.create(sports_params)
     if @sport.save
       redirect_to 'root'

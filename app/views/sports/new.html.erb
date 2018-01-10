@@ -1,13 +1,13 @@
 
 
 
-<%= form_for @sport do |f| %>
-  <% if @sport.errors.any? %>
+<%= form_for @team do |f| %>
+  <% if @team.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@sport.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this user from being saved:</h2>
  
       <ul>
-      <% @sport.errors.full_messages.each do |msg| %>
+      <% @team.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -15,7 +15,7 @@
   <% end %>
 Sport Name
 <%= f.collection_select :name, Sport.all, :id, :name, :prompt => true %>
-<%= f.hidden_field :team_id%>
+
 <%= f.submit "add sport"%>
 <% end %></br>
 

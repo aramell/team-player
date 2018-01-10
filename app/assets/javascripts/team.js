@@ -6,6 +6,7 @@
        this.positions = attributes.positions
        
        this.games = attributes.games;
+       this.sports = attributes.sports
        this.sport_id = attributes.sport_id;
      }
     //  function Game(attributes){
@@ -27,18 +28,15 @@
       Team.templateTwo = Handlebars.compile(Team.templateSourceTwo)
 
      })
-    //  Handlebars.registerHelper("gameShow", function(game){
-    //   game.forEach(function(game){
-    //     var display = 
-    //   })
-
-    // })
+  
      
      Team.prototype.renderLi = function(){
+       
       return Team.template(this)
       }
       ///
       Team.prototype.show = function(){
+        
         return Team.templateTwo(this)
       }
       
@@ -85,15 +83,17 @@
           } else if (teamShow.children().length > 0 && teamShow.css('display') == 'block') {
               teamShow.hide()
           } else {
-                $('#teamshow').toggle()
+                teamShow.toggle()
+                
                 $.get(this.href)
                  .done(function(team){
-                  //  debugger
-                   var team = new Team(team)
 
-                   var teamShow = team.show() 
-                   $('#teamshow').html("")       //prevents additional       
-                   $('#teamshow').append(teamShow)
+                   var team = new Team(team)
+                   debugger
+
+                  //  var teamShow = team.show() 
+                  //  $('#teamshow').html("")       //prevents additional       
+                  //  $('#teamshow').append(teamShow)
                 
                 })
             } 

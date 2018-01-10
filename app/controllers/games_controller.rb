@@ -7,7 +7,6 @@ class GamesController < ApplicationController
     @other_games = Game.other_games
     @gamesall = Game.all
     
-    # binding.pry
     respond_to do |f|
       # f.html 
       f.json {render json: @gamesall}
@@ -18,6 +17,7 @@ class GamesController < ApplicationController
   
   def new
     @team = Team.find_by(:id => params[:team_id])
+    
     @game = Game.new
   end
 
