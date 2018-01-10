@@ -9,6 +9,8 @@
        this.sports = attributes.sports
        this.sport_id = attributes.sport_id;
      }
+    //  var moment = require('moment');
+
     //  function Game(attributes){
     //    this.game_date = attributes.game_date;
     //    this.game_time = attributes.game_time;
@@ -90,14 +92,10 @@
                 
                 $.get(this.href)
                  .done(function(team){
-
-                   var team = new Team(team)
-                   
-                  
+                   var team = new Team(team)                  
                   document.getElementById('teamshow').innerHTML = `<h2> ${team.name} </h2>
                   <p> Sports this team plays:</p>
-                      
-                     ${team.sports.map(function(sport){
+                    ${team.sports.map(function(sport){
                          return `<li>${sport.name}</li>`
                      })
                     }
@@ -107,18 +105,12 @@
                               Game Time: ${game.game_time}
                               </br>
                             `
-
                     })
                   }
-
                   <a href="/teams/${team.id}/games/new">Create Game for this Team</a><br>
                   <a href="/teams/${team.id}/edit">Edit this team</a><br>
                   <a href="/teams/${team.id}" rel="nofollow" data-method="delete">Delete Team</a><br>
-                  `   
-                  //  var teamShow = team.show() 
-                  //  $('#teamshow').html("")       //prevents additional       
-                  //  $('#teamshow').append(teamShow)
-                
+                  `               
                 })
               }
             
@@ -155,6 +147,7 @@
         }) 
           
     })
+    
   
       
       // })
