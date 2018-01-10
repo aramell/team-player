@@ -91,12 +91,12 @@
                  .done(function(team){
                    var team = new Team(team)                  
                   document.getElementById('teamshow').innerHTML = `<h2> ${team.name} </h2>
-                  <p> Sports this team plays:</p>
+                  <p><strong> Sports this team plays:</strong></p>
                     ${team.sports.map(function(sport){
                          return `<li>${sport.name}</li>`
-                     })
-                    }
-                  <p> Games: </p>
+                     }).join('')
+                    }</br>
+                  <p><strong> Games: </strong></p>
                     ${team.games.map(function(game){
                       return `<li>Game Date:${game.game_date}</li>
                               Game Time: ${game.game_time}
