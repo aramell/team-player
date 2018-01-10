@@ -80,15 +80,12 @@
           
           var teamShow = $('#teamshow')
           if (teamShow.css('display') == 'block' ){
-            teamShow.hide()
-          }else {
-
-          // if (teamShow.children().length > 0 && teamShow.css('display') == 'none') {
-          //     teamShow.show()
-          // } else if (teamShow.children().length > 0 && teamShow.css('display') == 'block') {
-          //     teamShow.hide()
-          // } else {
-                teamShow.toggle()
+            teamShow.fadeToggle()
+            
+          } else if ($(e.target).is('.container-fluid')){
+            teamShow.fadeToggle()
+          } else {
+                teamShow.fadeToggle()
                 
                 $.get(this.href)
                  .done(function(team){

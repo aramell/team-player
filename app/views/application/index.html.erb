@@ -57,31 +57,6 @@
 </script>
 
 
-<script id="show-template" type="text/x-handlebars-template">
-<div id="team-show-tempate"><a class="team-show-template" href="/teams/{{id}}"></a>Team: {{name}}</br>
-    <ul class="game_details">
-      Sports: </br>  {{#if sports}} 
-                
-                  {{this}}
-                {{/if}}
-      <strong>Games:</strong><br>
-      {{#if games}}
-        <p>Game Time:</p>    {{{games.0.game_time}}}</br>
-        <p>Game Date: </p>    {{games.1.game_date}}  
-          {{else}}
-        <p> no games yet</p>
-
-      {{/if}}
-
-        <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/teams/{{id}}/games/{{games.0.id}}">Delete game</a>
-    </ul>
-      <a href="/teams/{{id}}/games/new">Create Game for this Team</a><br>
-      <a href="/teams/{{id}}/edit">Edit this team</a><br>
-      <a href="/teams/{{id}}" rel="nofollow" data-method="delete">Delete Team</a><br>
-
-    </script>
-
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
   
