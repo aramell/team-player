@@ -126,7 +126,20 @@
         $('form.new_team').on('submit', function(e){
           e.preventDefault()
           
-          var data = $('#new_team').serialize()
+          var form = new FormData
+          var data = document.getElementById('new_team')
+          form.append("json", JSON.stringify(data))
+          
+          // return fetch(this.action, {
+          //   method: 'POST',
+          //   headers: { 
+          //     'Accept': 'application/json',
+          //     'Content-type': 'application/json'
+          //   },
+          //   credentials: 'same-origin',
+          //  body: JSON.stringify(form)
+          // })
+          // .then(res => res.json)
           // debugger
           $.ajax({
             url: this.action,
@@ -136,17 +149,18 @@
              var team = new Team(result) //json to js object
             var teamLi = team.renderLi()
              
-              // $.each(result, function(i, value){
               $('#teamlist').append(teamLi)
               $('#team_name').val("")
             
-              // $('#teams').append(result)
-              //  })
-            }        
-
-          })
+              $('#teams').append(result)
+               }
+              })
+                   
+              })
+              
+              
             
-        }) 
+        
           
     })
     

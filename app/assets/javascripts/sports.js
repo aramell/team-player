@@ -12,13 +12,31 @@ $('.sports').on('click', function(e){
   } else if (allSports.children().length > 0 && allSports.css('display') == 'block') {
     allSports.hide()
   } else {
-  $.get(this.href)
-    .done(function(json){
-      json.forEach(function(sport){
-        $('.all_sports').append("<li>" + sport.name + "</li>")
+    return fetch(this.href, {
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+       credentials: 'same-origin'
+    })
+    .then(res => res.json())
+    .then(json => {
+      json.forEach(sport => {
+      $('.all_sports').append("<li>" + sport.name + "</li>")
+
       })
     })
-   }
-  })
 
+  }
+  
   })
+})
+    
+    
+  // $.get(this.href)
+  //   .done(function(json){
+  //     json.forEach(function(sport){
+  //       $('.all_sports').append("<li>" + sport.name + "</li>")
+  //     })
+  //   })
+  
