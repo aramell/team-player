@@ -1,6 +1,8 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:edit, :show, :update]
   include TeamHelper
+  protect_from_forgery with: :null_session
+
 
   def index
      @teams = Team.all
@@ -15,7 +17,7 @@ class TeamsController < ApplicationController
     @team.sports.build
   end
   def create
-     @team = current_user.teams.build(team_params)
+    @team = current_user.teams.build(team_params)
     if @team.save
       # render 'teams/team', :layout => false
       respond_to do |f|

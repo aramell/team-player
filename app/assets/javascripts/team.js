@@ -98,6 +98,7 @@
               }
             
         })
+
         // new team 
         $('.new-team').on('click',function(e){
           e.preventDefault()
@@ -107,34 +108,36 @@
         $('form.new_team').on('submit', function(e){
           e.preventDefault()
           
-          var form = new FormData
-          var data = document.getElementById('new_team')
-          form.append("json", JSON.stringify(data))
-          debugger
+          var form = $('#new_team').serializeArray()
+          
           return fetch(this.action, {
-            method: 'POST',
-            headers: { 
-              'Accept': 'application/json',
-              'Content-type': 'application/json'
-            },
+            method: 'post',
             credentials: 'same-origin',
-           body: JSON.stringify(form)
+             body: new FormData(document.getElementById('new_team'))
           })
-          .then(res => res.json)
+          .then(res => res.json())
+          .then(json => {
+            debugger
+            // var team = new Team(json) //json to js object
+            var teamLi = team.renderLi()
+             
+              $('#teamlist').append(teamLi)
+              $('#team_name').val("")
+            debugger
+              $('#teams').append(team)
+
+          })
           debugger
           // $.ajax({
           //   url: this.action,
           //   method: 'POST',
           //   data: data,
           //   success: function(result){
-             var team = new Team(result) //json to js object
-            var teamLi = team.renderLi()
-             
-              $('#teamlist').append(teamLi)
-              $('#team_name').val("")
-            
-              $('#teams').append(result)
-               }
-            })
+    
+              
+          })
+          
+        
+      
     })
     

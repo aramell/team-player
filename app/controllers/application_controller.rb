@@ -1,11 +1,10 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   before_action :authenticate_user!
   before_action :configure_sign_up_params, if: :devise_controller?
   
   def index
-    # binding.pry
     @teams = Team.new
 
   end
