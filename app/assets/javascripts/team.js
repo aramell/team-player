@@ -54,19 +54,9 @@
                     // $.each(result, function(i, value){
                     allTeams.append(teamLi)
                 })
-              })
-              // $.ajax({
-              //   url: this.href,
-              //   dataType: "json" 
-              // })
-              //   .done(function(json){
-              
-                  
-                
-              }
-            })
-
-       
+              })        
+           }
+        })
         // // show team 
         $('.team').on('click', function(e){
           e.preventDefault()
@@ -120,23 +110,23 @@
           var form = new FormData
           var data = document.getElementById('new_team')
           form.append("json", JSON.stringify(data))
-          
-          // return fetch(this.action, {
-          //   method: 'POST',
-          //   headers: { 
-          //     'Accept': 'application/json',
-          //     'Content-type': 'application/json'
-          //   },
-          //   credentials: 'same-origin',
-          //  body: JSON.stringify(form)
-          // })
-          // .then(res => res.json)
-          // debugger
-          $.ajax({
-            url: this.action,
+          debugger
+          return fetch(this.action, {
             method: 'POST',
-            data: data,
-            success: function(result){
+            headers: { 
+              'Accept': 'application/json',
+              'Content-type': 'application/json'
+            },
+            credentials: 'same-origin',
+           body: JSON.stringify(form)
+          })
+          .then(res => res.json)
+          debugger
+          // $.ajax({
+          //   url: this.action,
+          //   method: 'POST',
+          //   data: data,
+          //   success: function(result){
              var team = new Team(result) //json to js object
             var teamLi = team.renderLi()
              
@@ -145,46 +135,6 @@
             
               $('#teams').append(result)
                }
-              })
-                   
-              })
-              
-              
-            
-        
-          
+            })
     })
     
-  
-      
-      // })
-      // have json parsed 
-      //.on('page:change') - what does this do?
-
-
-      /*
-        TODO APP
-        --------
-
-          * Rails Side
-            GET /tasks
-            GET /tasks/:id
-            POST /tasks
-            PUT /tasks/:id
-            DELETE /tasks/:id
-
-            TASK Model 
-              - name
-
-            The only view template will be at the root route /
-
-            <div id="root"></div>
-
-          * JS Side 
-
-            Mount a todo list into the div id="root"
-
-            Recommend template literals
-
-            * checking or unchcecking a todo is optional
-      */
