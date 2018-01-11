@@ -9,16 +9,7 @@
        this.sports = attributes.sports
        this.sportID = attributes.sport_id;
      }
-    //  var moment = require('moment');
-
-    //  function Game(attributes){
-    //    this.game_date = attributes.game_date;
-    //    this.game_time = attributes.game_time;
-    //    this.team_id = attributes.team_id;
-    //    this.sport_id = attributes.sport_id;
-    //    this.user_id = attributes.user_id;
-    //  }
-     /////
+  
      $(function(){
      Team.templateSource = $("#team-template").html()
 
