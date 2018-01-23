@@ -15,10 +15,7 @@
 
      Team.template = Handlebars.compile(Team.templateSource)
      })
-     /////
-     
-  
-     
+        
      Team.prototype.renderLi = function(){
        
       return Team.template(this)
@@ -73,7 +70,7 @@
                 teamShow.slideToggle()
                 
                 $.get(this.href)
-                 .done(function(team){
+                 .done((team) =>{
                    let newTeam = new Team(team)        
                     
                    document.getElementById('teamshow').innerHTML = `<h2> ${newTeam.name} </h2>
@@ -102,14 +99,12 @@
         // new team 
         $('.new-team').on('click',function(e){
           e.preventDefault()
-          
           $('#teamform').toggle()
         })
         $('form.new_team').on('submit', function(e){
           e.preventDefault()
           
-          var form = $('#new_team').serializeArray()
-          
+          let form = $('#new_team').serializeArray()
           return fetch(this.action, {
             method: 'post',
             credentials: 'same-origin',
@@ -117,8 +112,8 @@
           })
           .then(res => res.json())
           .then(json => {
-            var newTeam = new Team(json) //json to js object
-            var teamLi = newTeam.renderLi()
+            let newTeam = new Team(json) //json to js object
+            let teamLi = newTeam.renderLi()
              
               $('#teamlist').append(teamLi)
               $('#team_name').val("")
@@ -126,8 +121,5 @@
 
           })
       })
-          
-        
-      
     })
     
