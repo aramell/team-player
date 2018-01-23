@@ -61,8 +61,8 @@
         $('.team').on('click', function(e){
           e.preventDefault()
           
-          const teamShow = $('#teamshow')
-          var team = this
+          let teamShow = $('#teamshow')
+          const team = this
           
           if (teamShow.css('display') == 'block' ){
             teamShow.slideToggle()
@@ -74,25 +74,25 @@
                 
                 $.get(this.href)
                  .done(function(team){
-                  //  var team = new Team(team)        
-                            
-                  teamShow.innerHTML = `<h2> ${team.name} </h2>
+                   let newTeam = new Team(team)        
+                    
+                   document.getElementById('teamshow').innerHTML = `<h2> ${newTeam.name} </h2>
                   <p><strong> Sports this team plays:</strong></p>
-                    ${team.sports.map(function(sport){
+                    ${newTeam.sports.map((sport) => {
                          return `<li>${sport.name}</li>`
                      }).join('')
                     }</br>
                   <p><strong> Games: </strong></p>
-                    ${team.games.map(function(game){
+                    ${newTeam.games.map((game) =>{
                       return `<li>Game Date:${game.game_date}</li>
                               Game Time: ${game.game_time}
                               </br>
                             `
                     }).join('')
                   }
-                  <a href="/teams/${team.id}/games/new">Create Game for this Team</a><br>
-                  <a href="/teams/${team.id}/edit">Edit this team</a><br>
-                  <a href="/teams/${team.id}" rel="nofollow" data-method="delete">Delete Team</a><br>
+                  <a href="/teams/${newTeam.id}/games/new">Create Game for this Team</a><br>
+                  <a href="/teams/${newTeam.id}/edit">Edit this team</a><br>
+                  <a href="/teams/${newTeam.id}" rel="nofollow" data-method="delete">Delete Team</a><br>
                   `               
                 })
               }
@@ -117,25 +117,15 @@
           })
           .then(res => res.json())
           .then(json => {
-            debugger
-            // var team = new Team(json) //json to js object
-            var teamLi = team.renderLi()
+            var newTeam = new Team(json) //json to js object
+            var teamLi = newTeam.renderLi()
              
               $('#teamlist').append(teamLi)
               $('#team_name').val("")
-            debugger
-              $('#teams').append(team)
+              $('#teams').append(newTeam)
 
           })
-          debugger
-          // $.ajax({
-          //   url: this.action,
-          //   method: 'POST',
-          //   data: data,
-          //   success: function(result){
-    
-              
-          })
+      })
           
         
       
