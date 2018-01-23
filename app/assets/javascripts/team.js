@@ -21,7 +21,6 @@
       return Team.template(this)
       }
    
-     
      $(function(){
         //all teams bottom (idex)
           $('.teams').on('click', function(e){
@@ -45,10 +44,8 @@
               .then(res => res.json())
               .then(json => {
                   json.forEach(teamElement => {
-                  // $('.all_teams').append("<li>" + team.name  + "</li>" )
                   let team = new Team(teamElement) //json to js object
                   let teamLi = team.renderLi()
-                    // $.each(result, function(i, value){
                     allTeams.append(teamLi)
                 })
               })        
@@ -57,9 +54,7 @@
         // // show team 
         $('.team').on('click', function(e){
           e.preventDefault()
-          
           let teamShow = $('#teamshow')
-          const team = this
           
           if (teamShow.css('display') == 'block' ){
             teamShow.slideToggle()
@@ -68,7 +63,6 @@
             teamShow.slideToggle()
           } else {
                 teamShow.slideToggle()
-                
                 $.get(this.href)
                  .done((team) =>{
                    let newTeam = new Team(team)        
